@@ -8,8 +8,6 @@ import javax.persistence.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-
-import com.google.firebase.messaging.Message;
 import com.protesys.model.Casa;
 import com.protesys.repository.CasaRepository;
 
