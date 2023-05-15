@@ -1,8 +1,28 @@
 package com.protesys.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "credencial")
 public class Credencial {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idCredencial;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
+
+    @OneToOne(mappedBy = "credencial")
+    private Usuario usuario;
 
     //CONSTRUCTOR
     public Credencial(){}

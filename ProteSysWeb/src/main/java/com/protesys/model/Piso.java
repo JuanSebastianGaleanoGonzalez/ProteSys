@@ -1,10 +1,35 @@
 package com.protesys.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "piso")
 public class Piso {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPiso;
+
+    @Column(name = "codigo")
     private String codigo;
+
+    @Column(name = "numero")
     private int numero_piso;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "casa_id")
     private Casa casa;
+
+    @OneToOne
+    private Grupo grupo;
 
     //CONSTRUCTOR
     public Piso() {
