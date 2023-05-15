@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "piso")
 public class Piso {
@@ -24,6 +26,7 @@ public class Piso {
     @Column(name = "numero")
     private int numero_piso;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "casa_id")
     private Casa casa;
@@ -35,6 +38,10 @@ public class Piso {
     public Piso() {
     }
 
+    public Piso(String codigo, int numero_piso) {
+        this.codigo = codigo;
+        this.numero_piso = numero_piso;
+    }
     //ACCESSORS
     
     public String getCodigo() {
@@ -67,6 +74,14 @@ public class Piso {
 
     public void setIdPiso(long idPiso) {
         this.idPiso = idPiso;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
     }
 
     

@@ -12,38 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.protesys.model.Grupo;
-import com.protesys.services.GrupoService;
+import com.protesys.model.Credencial;
+import com.protesys.services.CredencialService;
 
 @RestController
-@RequestMapping(value = "/grupo")
-public class GrupoRestController {
-    
+@RequestMapping(value = "/credencial")
+public class CredencialRestController {
     @Autowired
-    GrupoService grupoService;
+    CredencialService credencialService;
 
     @GetMapping(value = "/search")
-    public List<Grupo> listarGrupos() {
-        return this.grupoService.getGrupos();
+    public List<Credencial> listarCredenciales() {
+        return this.credencialService.getCredenciales();
     }
 
     @GetMapping(value = "/search/{id}")
-    public Grupo buscarGrupo(@PathVariable("id") Long id) {
-        return this.grupoService.getGrupo(id);
+    public Credencial buscarCredencial(@PathVariable("id") Long id) {
+        return this.credencialService.getCredencial(id);
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public boolean eliminarGrupo(@PathVariable("id") Long id) {
-        return this.grupoService.deleteGrupo(id);
+    public boolean eliminarCredencial(@PathVariable("id") Long id) {
+        return this.credencialService.deleteCredencial(id);
     }
 
     @PostMapping(value = "/create")
-    public boolean crearGrupo(@RequestBody Grupo grupo) {
-        return this.grupoService.createGrupo(grupo);
+    public boolean crearCredencial(@RequestBody Credencial credencial) {
+        return this.credencialService.createCredencial(credencial);
     }
 
     @PutMapping(value = "/update")
-    public boolean actualizarGrupo(@RequestBody Grupo grupo) {
-        return this.grupoService.updateGrupo(grupo);
+    public boolean actualizarCredencial(@RequestBody Credencial credencial) {
+        return this.credencialService.updateCredencial(credencial);
     }
 }

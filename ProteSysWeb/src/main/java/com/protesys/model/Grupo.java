@@ -1,5 +1,6 @@
 package com.protesys.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.protesys.utils.chat.Chat;
 
 @Entity
@@ -33,20 +35,27 @@ public class Grupo {
     private int cantidad_usuarios;
 
     @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
-    private List<Usuario> usuarios;
+    private List<Usuario> usuarios = new ArrayList<>();
 
-    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Chat> chats;
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
+    private List<Chat> chats = new ArrayList<>();
 
     @Column(name = "estado")
     private String estado;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "grupo")
     private Piso piso;
     
     //CONSTRUCTOR
     
     public Grupo() {
+    }
+
+    public Grupo(String nombre, Date fecha_creacion, int cantidad_usuarios) {
+        this.nombre = nombre;
+        this.fecha_creacion = fecha_creacion;
+        this.cantidad_usuarios = cantidad_usuarios;
     }
 
     //ACCESSORS

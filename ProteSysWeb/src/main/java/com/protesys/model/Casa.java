@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "casa")
 public class Casa {
@@ -28,11 +30,17 @@ public class Casa {
     @Column(name = "direccion")
     private String direccion;
 
-    @OneToMany(mappedBy = "casa", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "casa", cascade = CascadeType.ALL)
     private List<Piso> pisos = new ArrayList<>();
     
     //CONSTRUCTOR
     public Casa() {
+    }
+
+    public Casa(String nombre, String barrio, String direccion) {
+        this.nombre = nombre;
+        this.barrio = barrio;
+        this.direccion = direccion;
     }
 
     //ACCESSORS

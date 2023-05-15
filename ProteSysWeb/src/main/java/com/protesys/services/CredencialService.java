@@ -34,9 +34,9 @@ public class CredencialService {
         }
     }
 
-    public boolean deleteCredencial(Credencial credencial){
+    public boolean deleteCredencial(Long idCredencial){
         try{
-            this.credencialRepository.delete(this.credencialRepository.findById(credencial.getIdCredencial()).get());
+            this.credencialRepository.delete(this.credencialRepository.findById(idCredencial).get());
             return true;
         }catch(PersistenceException | NoSuchElementException | DataIntegrityViolationException exception){
             return false;
