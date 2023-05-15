@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.protesys.model.Usuario;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, String> {
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 }
