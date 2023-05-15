@@ -14,7 +14,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.protesys.utils.chat.Chat;
-import com.protesys.utils.estado.Estado;
 
 @Entity
 @Table(name = "grupo")
