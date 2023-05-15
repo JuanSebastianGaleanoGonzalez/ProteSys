@@ -40,6 +40,22 @@ public class Credencial {
         return username;
     }
 
+    public long getIdCredencial() {
+        return idCredencial;
+    }
+
+    public void setIdCredencial(long idCredencial) {
+        this.idCredencial = idCredencial;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public String getPassword() {
         return password;
     }
