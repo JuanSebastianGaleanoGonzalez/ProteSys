@@ -3,8 +3,8 @@ package com.protesys.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.protesys.model.Usuario;
+import com.protesys.utils.chat.Chat;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
+public interface ChatRepository extends CrudRepository<Chat, Long>{
 }

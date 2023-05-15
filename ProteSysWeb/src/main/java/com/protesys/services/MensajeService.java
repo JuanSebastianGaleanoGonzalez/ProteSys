@@ -9,56 +9,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.protesys.model.Usuario;
-import com.protesys.repository.UsuarioRepository;
+import com.protesys.repository.MensajeRepository;
+import com.protesys.utils.chat.Mensaje;
 
 @Service
-public class UsuarioService {
+public class MensajeService {
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    MensajeRepository mensajeRepository;
 
-    public List<Usuario> getUsuarios() {
+    public List<Mensaje> getMensajes() {
         try {
-            return (List<Usuario>) this.usuarioRepository.findAll();
+            return (List<Mensaje>) this.mensajeRepository.findAll();
         } catch (PersistenceException exception) {
             return null;
         }
     }
 
-    public Usuario getUsuario(Long idUsuario) {
+    public Mensaje getMensaje(Long idMensaje) {
         try {
-            return this.usuarioRepository.findById(idUsuario).get();
+            return this.mensajeRepository.findById(idMensaje).get();
         } catch (PersistenceException | NoSuchElementException exception) {
             return null;
         }
     }
 
-    public boolean deleteUsuario(Long idUsuario) {
+    public boolean deleteMensaje(Long idMensaje) {
         try {
-            this.usuarioRepository.delete(this.usuarioRepository.findById(idUsuario).get());
+            this.mensajeRepository.delete(this.mensajeRepository.findById(idMensaje).get());
             return true;
         } catch (PersistenceException | NoSuchElementException | DataIntegrityViolationException exception) {
             return false;
         }
     }
 
-    public boolean createUsuario(Usuario usuario) {
+    public boolean createMensaje(Mensaje mensaje) {
         try {
-            this.usuarioRepository.save(usuario);
+            this.mensajeRepository.save(mensaje);
             return true;
         } catch (PersistenceException exception) {
             return false;
         }
     }
 
-    public boolean updateUsuario(Usuario usuario) {
+    public boolean updateMensaje(Mensaje mensaje) {
         try {
-            if (this.getUsuario(usuario.getIdUsuario()) != null) {
-                this.usuarioRepository.save(usuario);
+            if (this.getMensaje(mensaje.getIdMensaje()) != null) {
+                this.mensajeRepository.save(mensaje);
                 return true;
             } else {
-                throw new NoSuchElementException("No se puede actualizar un usuario que no existe.");
+                throw new NoSuchElementException("No se puede actualizar un mensaje que no existe.");
             }
         } catch (PersistenceException | NoSuchElementException exception) {
             return false;

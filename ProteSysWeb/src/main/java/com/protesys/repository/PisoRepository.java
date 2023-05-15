@@ -3,8 +3,8 @@ package com.protesys.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.protesys.model.Usuario;
+import com.protesys.model.Piso;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
+public interface PisoRepository extends CrudRepository<Piso, Long>{    
 }

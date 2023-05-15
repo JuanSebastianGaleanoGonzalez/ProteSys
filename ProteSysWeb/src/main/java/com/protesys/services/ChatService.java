@@ -9,57 +9,57 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.protesys.model.Grupo;
-import com.protesys.repository.GrupoRepository;
+import com.protesys.repository.ChatRepository;
+import com.protesys.utils.chat.Chat;
 
 @Service
-public class GrupoService {
+public class ChatService {
     
     @Autowired
-    GrupoRepository grupoRepository;
+    ChatRepository chatRepository;
 
-    public List<Grupo> getGrupos(){
+    public List<Chat> getChats(){
         try{
-            return (List<Grupo>) this.grupoRepository.findAll();
+            return (List<Chat>) this.chatRepository.findAll();
         }catch(PersistenceException exception){
             return null;
         }
     }
-    
-    public Grupo getGrupo(Long idGrupo){
+
+    public Chat getChat(Long idChat){
         try{
-            return this.grupoRepository.findById(idGrupo).get();
+            return this.chatRepository.findById(idChat).get();
         }catch(PersistenceException | NoSuchElementException exception){
             return null;
         }
     }
-    
-    public boolean deleteGrupo(Long idGrupo){
+
+    public boolean deleteChat(Long idChat){
         try{
-            this.grupoRepository.delete(this.grupoRepository.findById(idGrupo).get());
+            this.chatRepository.delete(this.chatRepository.findById(idChat).get());
             return true;
         }catch(PersistenceException | NoSuchElementException | DataIntegrityViolationException exception){
             return false;
         }
     }
-    
-    public boolean createGrupo(Grupo grupo){
+
+    public boolean createChat(Chat chat){
         try{
-            this.grupoRepository.save(grupo);
+            this.chatRepository.save(chat);
             return true;
         }catch(PersistenceException exception){
             return false;
         }
     }
-    
-    public boolean updateGrupo(Grupo grupo){
+
+    public boolean updateChat(Chat chat){
         try{
-            if(this.getGrupo(grupo.getIdGrupo()) != null){
-                this.grupoRepository.save(grupo);
+            if(this.getChat(chat.getIdChat()) != null){
+                this.chatRepository.save(chat);
                 return true;
             }else{
-                throw new NoSuchElementException("No se puede actualizar un grupo que no existe.");
-            }
+                throw new NoSuchElementException("No se puede actualizar un chat que no existe.");
+            }           
         }catch(PersistenceException | NoSuchElementException exception){
             return false;
         }

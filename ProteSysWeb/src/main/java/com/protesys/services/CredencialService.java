@@ -9,56 +9,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.protesys.model.Grupo;
-import com.protesys.repository.GrupoRepository;
+import com.protesys.model.Credencial;
+import com.protesys.repository.CredencialRepository;
 
 @Service
-public class GrupoService {
+public class CredencialService {
     
     @Autowired
-    GrupoRepository grupoRepository;
+    CredencialRepository credencialRepository;
 
-    public List<Grupo> getGrupos(){
+    public List<Credencial> getCredenciales(){
         try{
-            return (List<Grupo>) this.grupoRepository.findAll();
+            return (List<Credencial>) this.credencialRepository.findAll();
         }catch(PersistenceException exception){
             return null;
         }
     }
-    
-    public Grupo getGrupo(Long idGrupo){
+
+    public Credencial getCredencial(Long idCredencial){
         try{
-            return this.grupoRepository.findById(idGrupo).get();
+            return this.credencialRepository.findById(idCredencial).get();
         }catch(PersistenceException | NoSuchElementException exception){
             return null;
         }
     }
-    
-    public boolean deleteGrupo(Long idGrupo){
+
+    public boolean deleteCredencial(Credencial credencial){
         try{
-            this.grupoRepository.delete(this.grupoRepository.findById(idGrupo).get());
+            this.credencialRepository.delete(this.credencialRepository.findById(credencial.getIdCredencial()).get());
             return true;
         }catch(PersistenceException | NoSuchElementException | DataIntegrityViolationException exception){
             return false;
         }
     }
-    
-    public boolean createGrupo(Grupo grupo){
+
+    public boolean createCredencial(Credencial credencial){
         try{
-            this.grupoRepository.save(grupo);
+            this.credencialRepository.save(credencial);
             return true;
         }catch(PersistenceException exception){
             return false;
         }
     }
-    
-    public boolean updateGrupo(Grupo grupo){
+
+    public boolean updateCredencial(Credencial credencial){
         try{
-            if(this.getGrupo(grupo.getIdGrupo()) != null){
-                this.grupoRepository.save(grupo);
+            if(this.getCredencial(credencial.getIdCredencial()) != null){
+                this.credencialRepository.save(credencial);
                 return true;
             }else{
-                throw new NoSuchElementException("No se puede actualizar un grupo que no existe.");
+                throw new NoSuchElementException("No se puede actualizar una credencial que no existe.");
             }
         }catch(PersistenceException | NoSuchElementException exception){
             return false;
