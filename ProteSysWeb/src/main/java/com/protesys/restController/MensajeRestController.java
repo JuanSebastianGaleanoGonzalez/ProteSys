@@ -12,38 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.protesys.model.Casa;
-import com.protesys.services.CasaService;
+import com.protesys.services.MensajeService;
+import com.protesys.utils.chat.Mensaje;
 
 @RestController
-@RequestMapping(value = "/casa")
-public class CasaRestController {
+@RequestMapping(value = "/mensaje")
+public class MensajeRestController {
 
     @Autowired
-    CasaService casaService;
+    MensajeService mensajeService;
 
     @GetMapping(value = "/search")
-    public List<Casa> listarCasas() {
-        return this.casaService.getCasas();
+    public List<Mensaje> listarMensajes() {
+        return this.mensajeService.getMensajes();
     }
 
     @GetMapping(value = "/search/{id}")
-    public Casa buscarCasa(@PathVariable("id") Long id) {
-        return this.casaService.getCasa(id);
+    public Mensaje buscarMensaje(@PathVariable("id") Long id) {
+        return this.mensajeService.getMensaje(id);
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public boolean eliminarCasa(@PathVariable("id") Long id) {
-        return this.casaService.deleteCasa(id);
+    public boolean eliminarMensaje(@PathVariable("id") Long id) {
+        return this.mensajeService.deleteMensaje(id);
     }
 
     @PostMapping(value = "/create")
-    public boolean crearCasa(@RequestBody Casa casa) {
-        return this.casaService.createCasa(casa);
+    public boolean crearMensaje(@RequestBody Mensaje mensaje) {
+        return this.mensajeService.createMensaje(mensaje);
     }
 
     @PutMapping(value = "/update")
-    public boolean actualizarCasa(@RequestBody Casa casa) {
-        return this.casaService.updateCasa(casa);
+    public boolean actualizarMensaje(@RequestBody Mensaje mensaje) {
+        return this.mensajeService.updateMensaje(mensaje);
     }
+
 }

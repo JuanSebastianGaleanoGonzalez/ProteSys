@@ -12,38 +12,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.protesys.model.Casa;
-import com.protesys.services.CasaService;
+import com.protesys.services.ChatService;
+import com.protesys.utils.chat.Chat;
 
 @RestController
-@RequestMapping(value = "/casa")
-public class CasaRestController {
+@RequestMapping(value = "/chat")
+public class ChatRestController {
 
     @Autowired
-    CasaService casaService;
+    ChatService chatService;
 
     @GetMapping(value = "/search")
-    public List<Casa> listarCasas() {
-        return this.casaService.getCasas();
+    public List<Chat> listarChats() {
+        return this.chatService.getChats();
     }
 
     @GetMapping(value = "/search/{id}")
-    public Casa buscarCasa(@PathVariable("id") Long id) {
-        return this.casaService.getCasa(id);
+    public Chat buscarChat(@PathVariable("id") Long id) {
+        return this.chatService.getChat(id);
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public boolean eliminarCasa(@PathVariable("id") Long id) {
-        return this.casaService.deleteCasa(id);
+    public boolean eliminarChat(@PathVariable("id") Long id) {
+        return this.chatService.deleteChat(id);
     }
 
     @PostMapping(value = "/create")
-    public boolean crearCasa(@RequestBody Casa casa) {
-        return this.casaService.createCasa(casa);
+    public boolean crearChat(@RequestBody Chat chat) {
+        return this.chatService.createChat(chat);
     }
 
     @PutMapping(value = "/update")
-    public boolean actualizarCasa(@RequestBody Casa casa) {
-        return this.casaService.updateCasa(casa);
+    public boolean actualizarChat(@RequestBody Chat chat) {
+        return this.chatService.updateChat(chat);
     }
 }
