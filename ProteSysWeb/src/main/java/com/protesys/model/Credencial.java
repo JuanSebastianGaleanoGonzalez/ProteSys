@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "credencial")
 public class Credencial {
@@ -21,6 +23,7 @@ public class Credencial {
     @Column(name = "password")
     private String password;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "credencial")
     private Usuario usuario;
 

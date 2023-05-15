@@ -1,10 +1,10 @@
 package com.protesys.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.protesys.utils.chat.Chat;
 
 @Entity
@@ -39,12 +40,14 @@ public class Usuario {
     @Column(name = "rol")
     private String rol;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "grupo_id")
     private Grupo grupo;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "usuarios")
-    private List<Chat> chats;
+    private List<Chat> chats = new ArrayList<>();
 
     @OneToOne
     private Credencial credencial;
@@ -121,5 +124,16 @@ public class Usuario {
     public void setCredencial(Credencial credencial) {
         this.credencial = credencial;
     }
-    
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public List<Chat> getChats() {
+        return chats;
+    }
+
+    public Credencial getCredencial() {
+        return credencial;
+    }
 }
