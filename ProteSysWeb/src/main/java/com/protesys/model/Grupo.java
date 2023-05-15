@@ -3,17 +3,46 @@ package com.protesys.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.protesys.utils.chat.Chat;
 import com.protesys.utils.estado.Estado;
 
+@Entity
+@Table(name = "grupo")
 public class Grupo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idGrupo;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "fecha_creacion")
     private Date fecha_creacion;
+
+    @Column(name = "cantidad_usuarios")
     private int cantidad_usuarios;
+
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
     private List<Usuario> usuarios;
+
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Chat> chats;
-    private Estado estado;
+
+    @Column(name = "estado")
+    private String estado;
+
+    @OneToOne(mappedBy = "grupo")
     private Piso piso;
     
     //CONSTRUCTOR
@@ -63,11 +92,11 @@ public class Grupo {
         this.chats = chats;
     }
 
-    public Estado getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
