@@ -8,15 +8,18 @@ import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AdminHomeComponent } from './components/administrador/admin-home/admin-home.component';
 import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { UsuarioViewComponent } from './components/administrador/usuario/usuario-view/usuario-view.component';
-import { UsuarioUpdateComponent } from './components/administrador/usuario/usuario-update/usuario-update.component';
-import { GrupoUpdateComponent } from './components/administrador/grupo/grupo-update/grupo-update.component';
-import { GrupoViewComponent } from './components/administrador/grupo/grupo-view/grupo-view.component';
-import { PisoViewComponent } from './components/administrador/piso/piso-view/piso-view.component';
-import { PisoUpdateComponent } from './components/administrador/piso/piso-update/piso-update.component';
-import { CasaUpdateComponent } from './components/administrador/casa/casa-update/casa-update.component';
-import { CasaViewComponent } from './components/administrador/casa/casa-view/casa-view.component';
+import { AdminUsuarioCreateComponent } from './components/administrador/usuario/admin-usuario-create/admin-usuario-create.component';
+import { AdminUsuarioUpdateComponent } from './components/administrador/usuario/admin-usuario-update/admin-usuario-update.component';
+import { AdminUsuarioViewComponent } from './components/administrador/usuario/admin-usuario-view/admin-usuario-view.component';
+import { AdminGrupoViewComponent } from './components/administrador/grupo/admin-grupo-view/admin-grupo-view.component';
+import { AdminGrupoUpdateComponent } from './components/administrador/grupo/admin-grupo-update/admin-grupo-update.component';
+import { AdminGrupoCreateComponent } from './components/administrador/grupo/admin-grupo-create/admin-grupo-create.component';
+import { AdminPisoCreateComponent } from './components/administrador/piso/admin-piso-create/admin-piso-create.component';
+import { AdminPisoUpdateComponent } from './components/administrador/piso/admin-piso-update/admin-piso-update.component';
+import { AdminPisoViewComponent } from './components/administrador/piso/admin-piso-view/admin-piso-view.component';
+import { AdminCasaViewComponent } from './components/administrador/casa/admin-casa-view/admin-casa-view.component';
+import { AdminCasaUpdateComponent } from './components/administrador/casa/admin-casa-update/admin-casa-update.component';
+import { AdminCasaCreateComponent } from './components/administrador/casa/admin-casa-create/admin-casa-create.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +27,18 @@ import { CasaViewComponent } from './components/administrador/casa/casa-view/cas
     HomeComponent,
     SignInComponent,
     AdminHomeComponent,
-    UsuarioViewComponent,
-    UsuarioUpdateComponent,
-    GrupoUpdateComponent,
-    GrupoViewComponent,
-    PisoViewComponent,
-    PisoUpdateComponent,
-    CasaUpdateComponent,
-    CasaViewComponent
+    AdminUsuarioCreateComponent,
+    AdminUsuarioUpdateComponent,
+    AdminUsuarioViewComponent,
+    AdminGrupoViewComponent,
+    AdminGrupoUpdateComponent,
+    AdminGrupoCreateComponent,
+    AdminPisoCreateComponent,
+    AdminPisoUpdateComponent,
+    AdminPisoViewComponent,
+    AdminCasaViewComponent,
+    AdminCasaUpdateComponent,
+    AdminCasaCreateComponent
   ],
   imports: [
     BrowserModule,

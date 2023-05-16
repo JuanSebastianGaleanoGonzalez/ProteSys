@@ -66,9 +66,9 @@
                                 <td>
                                     <div class="containerBotones">
                                         <a class="botonVer boton"
-                                            [routerLink]="['/usuario/view', usuario.idUsuario]">Ver</a>
+                                            [routerLink]="['/admin/usuario/view', usuario.idUsuario]">Ver</a>
                                         <a class="botonEditar boton"
-                                            [routerLink]="['/usuario/update', usuario.idUsuario]">Editar</a>
+                                            [routerLink]="['/admin/usuario/update', usuario.idUsuario]">Editar</a>
                                         <a class="botonEliminar boton" (click)="eliminarUsuario(usuario)">Eliminar</a>
                                     </div>
                                 </td>
@@ -77,8 +77,7 @@
                     </table>
                 </div>
                 <div class="containerCrear">
-                    <a class="botonEditar"
-                    [routerLink]="['/grupo/create']">Crear</a>
+                    <a class="botonEditar" [routerLink]="['/admin/usuario/create']">Crear</a>
                 </div>
             </div>
             <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Grupos'">
@@ -104,9 +103,9 @@
                                 <td>{{grupo.estado}}</td>
                                 <td>
                                     <div class="containerBotones">
-                                        <a class="botonVer" [routerLink]="['/grupo/view', grupo.idGrupo]">Ver</a>
+                                        <a class="botonVer" [routerLink]="['/admin/grupo/view', grupo.idGrupo]">Ver</a>
                                         <a class="botonEditar"
-                                            [routerLink]="['/grupo/update', grupo.idGrupo]">Editar</a>
+                                            [routerLink]="['/admin/grupo/update', grupo.idGrupo]">Editar</a>
                                         <a class="botonEliminar" (click)="eliminarGrupo(grupo)">Eliminar</a>
                                     </div>
                                 </td>
@@ -116,7 +115,7 @@
                 </div>
                 <div class="containerCrear">
                     <a class="botonEditar"
-                    [routerLink]="['/grupo/create']">Crear</a>
+                    [routerLink]="['/admin/grupo/create']">Crear</a>
                 </div>
             </div>
             <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Pisos'">
@@ -138,8 +137,8 @@
                                 <td>{{piso.numero}}</td>
                                 <td>
                                     <div class="containerBotones">
-                                        <a class="botonVer" [routerLink]="['/piso/view', piso.idPiso]">Ver</a>
-                                        <a class="botonEditar" [routerLink]="['/piso/update', piso.idPiso]">Editar</a>
+                                        <a class="botonVer" [routerLink]="['/admin/piso/view', piso.idPiso]">Ver</a>
+                                        <a class="botonEditar" [routerLink]="['/admin/piso/update', piso.idPiso]">Editar</a>
                                         <a class="botonEliminar" (click)="eliminarPiso(piso)">Eliminar</a>
                                     </div>
                                 </td>
@@ -149,7 +148,7 @@
                 </div>
                 <div class="containerCrear">
                     <a class="botonEditar"
-                    [routerLink]="['/grupo/create']">Crear</a>
+                    [routerLink]="['/admin/grupo/create']">Crear</a>
                 </div>
             </div>
             <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Casas'">
@@ -173,8 +172,8 @@
                                 <td>{{casa.direccion}}</td>
                                 <td>
                                     <div class="containerBotones">
-                                        <a class="botonVer" [routerLink]="['/casa/view', casa.idCasa]">Ver</a>
-                                        <a class="botonEditar" [routerLink]="['/casa/update', casa.idCasa]">Editar</a>
+                                        <a class="botonVer" [routerLink]="['/admin/casa/view', casa.idCasa]">Ver</a>
+                                        <a class="botonEditar" [routerLink]="['/admin/casa/update', casa.idCasa]">Editar</a>
                                         <a class="botonEliminar" (click)="eliminarCasa(casa)">Eliminar</a>
                                     </div>
                                 </td>
@@ -184,7 +183,7 @@
                 </div>
                 <div class="containerCrear">
                     <a class="botonEditar"
-                    [routerLink]="['/grupo/create']">Crear</a>
+                    [routerLink]="['/admin/casa/create']">Crear</a>
                 </div>
             </div>
         </div>
