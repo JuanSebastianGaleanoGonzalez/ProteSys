@@ -1,176 +1,193 @@
 <html>
-    <body>
-        <div class="container">
-            <div class="containernav">
-                <nav>
-                    <ul>
-                        <div class="containerLi" (click)="cambiarOpcion('Inicio')" [ngClass]="{'selected': opcionSeleccionada === 'Inicio'}">
-                            <li>
-                                <a>Inicio</a>
-                            </li>
-                        </div>
-                        <div class="containerLi" (click)="cambiarOpcion('Usuarios')" [ngClass]="{'selected': opcionSeleccionada === 'Usuarios'}">
-                            <li>
-                                <a>Usuarios</a>
-                            </li>    
-                        </div>
-                        <div class="containerLi" (click)="cambiarOpcion('Grupos')" [ngClass]="{'selected': opcionSeleccionada === 'Grupos'}">
-                            <li>
-                                <a>Grupos</a>
-                            </li>    
-                        </div>
-                        <div class="containerLi" (click)="cambiarOpcion('Pisos')" [ngClass]="{'selected': opcionSeleccionada === 'Pisos'}">
-                            <li>
-                                <a>Pisos</a>
-                            </li>    
-                        </div>
-                        <div class="containerLi" (click)="cambiarOpcion('Casas')" [ngClass]="{'selected': opcionSeleccionada === 'Casas'}">
-                            <li>
-                                <a>Casas</a>
-                            </li>
-                        </div>
-                    </ul>
-                   </nav>
-            </div>
-               <div class="tabla">
-                <img *ngIf="opcionSeleccionada == 'Inicio'" src="assets/images/Logo_PROTESYS.png" alt="Logo">
-                <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Usuarios'">
+
+<body>
+    <div class="container">
+        <div class="containernav">
+            <nav>
+                <ul>
+                    <div class="containerLi" (click)="cambiarOpcion('Inicio')"
+                        [ngClass]="{'selected': opcionSeleccionada === 'Inicio'}">
+                        <li>
+                            <a>Inicio</a>
+                        </li>
+                    </div>
+                    <div class="containerLi" (click)="cambiarOpcion('Usuarios')"
+                        [ngClass]="{'selected': opcionSeleccionada === 'Usuarios'}">
+                        <li>
+                            <a>Usuarios</a>
+                        </li>
+                    </div>
+                    <div class="containerLi" (click)="cambiarOpcion('Grupos')"
+                        [ngClass]="{'selected': opcionSeleccionada === 'Grupos'}">
+                        <li>
+                            <a>Grupos</a>
+                        </li>
+                    </div>
+                    <div class="containerLi" (click)="cambiarOpcion('Pisos')"
+                        [ngClass]="{'selected': opcionSeleccionada === 'Pisos'}">
+                        <li>
+                            <a>Pisos</a>
+                        </li>
+                    </div>
+                    <div class="containerLi" (click)="cambiarOpcion('Casas')"
+                        [ngClass]="{'selected': opcionSeleccionada === 'Casas'}">
+                        <li>
+                            <a>Casas</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+        <div class="tabla">
+            <img *ngIf="opcionSeleccionada == 'Inicio'" src="assets/images/Logo_PROTESYS.png" alt="Logo">
+            <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Usuarios'">
+                <div class="containerTitulo">
                     <h2>Listado de Usuarios.</h2>
+                </div>
+                <div class="containerTabla">
                     <table>
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Cedula</th>
                                 <th>Nombre</th>
                                 <th>Correo</th>
                                 <th>Telefono</th>
                                 <th>Rol</th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let usuario of usuarios">
-                                <td>{{usuario.idUsuario}}</td>
                                 <td>{{usuario.cedula}}</td>
                                 <td>{{usuario.nombre}}</td>
                                 <td>{{usuario.correo}}</td>
                                 <td>{{usuario.telefono}}</td>
                                 <td>{{usuario.rol}}</td>
                                 <td>
-                                    <a class="botonVer" [routerLink]="['/usuario/view', usuario.idUsuario]">Ver</a>
-                                </td>
-                                <td>
-                                    <a class="botonEditar" [routerLink]="['/usuario/update', usuario.idUsuario]">Editar</a>
-                                </td>
-                                <td>
-                                    <a class="botonEliminar" (click)="eliminarUsuario(usuario)">Eliminar</a>
+                                    <div class="containerBotones">
+                                        <a class="botonVer boton"
+                                            [routerLink]="['/usuario/view', usuario.idUsuario]">Ver</a>
+                                        <a class="botonEditar boton"
+                                            [routerLink]="['/usuario/update', usuario.idUsuario]">Editar</a>
+                                        <a class="botonEliminar boton" (click)="eliminarUsuario(usuario)">Eliminar</a>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Grupos'">
+                <div class="containerCrear">
+                    <a class="botonEditar"
+                    [routerLink]="['/grupo/create']">Crear</a>
+                </div>
+            </div>
+            <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Grupos'">
+                <div class="containerTitulo">
                     <h2>Listado de Grupos.</h2>
+                </div>            
+                <div class="containerTabla">
                     <table>
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Fecha</th>
                                 <th>Num. Usuarios</th>
                                 <th>Estado</th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let grupo of grupos">
-                                <td>{{grupo.idGrupo}}</td>
                                 <td>{{grupo.nombre}}</td>
                                 <td>{{grupo.fecha}}</td>
                                 <td>{{grupo.cantidadUsuarios}}</td>
                                 <td>{{grupo.estado}}</td>
                                 <td>
-                                    <a class="botonVer" [routerLink]="['/grupo/view', grupo.idGrupo]">Ver</a>
-                                </td>
-                                <td>
-                                    <a class="botonEditar" [routerLink]="['/grupo/update', grupo.idGrupo]">Editar</a>
-                                </td>
-                                <td>
-                                    <a class="botonEliminar" (click)="eliminarGrupo(grupo)">Eliminar</a>
+                                    <div class="containerBotones">
+                                        <a class="botonVer" [routerLink]="['/grupo/view', grupo.idGrupo]">Ver</a>
+                                        <a class="botonEditar"
+                                            [routerLink]="['/grupo/update', grupo.idGrupo]">Editar</a>
+                                        <a class="botonEliminar" (click)="eliminarGrupo(grupo)">Eliminar</a>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Pisos'">
+                <div class="containerCrear">
+                    <a class="botonEditar"
+                    [routerLink]="['/grupo/create']">Crear</a>
+                </div>
+            </div>
+            <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Pisos'">
+                <div class="containerTitulo">
                     <h2>Listado de Pisos.</h2>
+                </div>
+                <div class="containerTabla">
                     <table>
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Codigo</th>
                                 <th>Numero</th>
-                                <th></th>
-                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let piso of pisos">
-                                <td>{{piso.idPiso}}</td>
                                 <td>{{piso.codigo}}</td>
                                 <td>{{piso.numero}}</td>
                                 <td>
-                                    <a class="botonVer" [routerLink]="['/piso/view', piso.idPiso]">Ver</a>
-                                </td>
-                                <td>
-                                    <a class="botonEditar" [routerLink]="['/piso/update', piso.idPiso]">Editar</a>
-                                </td>
-                                <td>
-                                    <a class="botonEliminar" (click)="eliminarPiso(piso)">Eliminar</a>
+                                    <div class="containerBotones">
+                                        <a class="botonVer" [routerLink]="['/piso/view', piso.idPiso]">Ver</a>
+                                        <a class="botonEditar" [routerLink]="['/piso/update', piso.idPiso]">Editar</a>
+                                        <a class="botonEliminar" (click)="eliminarPiso(piso)">Eliminar</a>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Casas'">
-                    <h2>Listado de Casas.</h2>
+                <div class="containerCrear">
+                    <a class="botonEditar"
+                    [routerLink]="['/grupo/create']">Crear</a>
+                </div>
+            </div>
+            <div class="containerInformacion" *ngIf="opcionSeleccionada == 'Casas'">
+                <div class="containerTitulo">
+                    <h2>Listado de Casas.</h2>            
+                </div>
+                <div class="containerTabla">
                     <table>
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Barrio</th>
                                 <th>Direccion</th>
-                                <th></th>
-                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let casa of casas">
-                                <td>{{casa.idCasa}}</td>
                                 <td>{{casa.nombre}}</td>
                                 <td>{{casa.barrio}}</td>
                                 <td>{{casa.direccion}}</td>
                                 <td>
-                                    <a class="botonVer" [routerLink]="['/casa/view', casa.idCasa]">Ver</a>
-                                </td>
-                                <td>
-                                    <a class="botonEditar" [routerLink]="['/casa/update', casa.idCasa]">Editar</a>
-                                </td>
-                                <td>
-                                    <a class="botonEliminar" (click)="eliminarCasa(casa)">Eliminar</a>
+                                    <div class="containerBotones">
+                                        <a class="botonVer" [routerLink]="['/casa/view', casa.idCasa]">Ver</a>
+                                        <a class="botonEditar" [routerLink]="['/casa/update', casa.idCasa]">Editar</a>
+                                        <a class="botonEliminar" (click)="eliminarCasa(casa)">Eliminar</a>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-               </div>
+                <div class="containerCrear">
+                    <a class="botonEditar"
+                    [routerLink]="['/grupo/create']">Crear</a>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
