@@ -1,0 +1,102 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+body img{
+    width: 80%;
+}
+nav {
+    background: #000428;
+    background: -webkit-linear-gradient(to left, #000a67, #50aeee);
+    background: linear-gradient(to left, #000a67, #50aeee);
+    display: flex;
+    justify-content: end;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    padding: 20px;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    font-size: 1.4vw;
+}
+
+.container img{
+    height: auto;
+}
+.informacion{
+    background: #000428;
+    background: -webkit-linear-gradient(to left, #000a67, #50aeee);
+    background: linear-gradient(to left, #000a67, #50aeee);
+    display: flex;
+    flex-direction: row;
+}
+
+.containerImg{
+    width: 100%;
+    height: 100%;
+}
+
+.containerImg img{
+    max-width: 80%;
+    padding: 10px 80px;
+}
+.presentacion{
+    display: flex;
+    padding: 10px 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.presentacion p{
+    color: white;
+    font-size: 1.6vw;
+    text-align: justify;
+}
+
+.contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px;
+    width: 100%;
+}
+
+.contacto img{
+    padding: 30px 0px;
+    width: 20%;
+}
+.contacto h3{
+    font-size: 1.4vw;
+    text-align: center;
+    font-weight: normal;
+    color: 000a67;
+}
+
+.contacto p{
+    font-size: 1.2vw;
+    text-align: center;
+    color: 000a67;
+}
