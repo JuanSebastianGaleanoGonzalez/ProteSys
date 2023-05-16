@@ -1,0 +1,174 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+nav li {
+    padding: 2%;
+    list-style: none;
+}
+
+nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+nav li a {
+    font-size: 1.6vw;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.containernav {
+    width: 20%;
+    height: 100%;
+    background: #000428;
+    background: -webkit-linear-gradient(to right, #000a67, #50aeee);
+    background: linear-gradient(to right, #000a67, #50aeee);
+}
+
+.tabla {
+    width: 80%;
+    height: 100%;
+}
+
+.tabla img {
+    width: 100%;
+    height: 100%;
+}
+
+.containerLi:hover {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 30px 4px #000000;
+}
+
+.containerLi:hover a {
+    color: #000a67;
+    text-shadow: 2px 2px 4px #00bfff;
+}
+
+.containerLi {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerLi.selected {
+    background-color: white;
+    box-shadow: 0px 0px 30px 4px #000000;
+}
+
+.containerLi.selected a {
+    color: #000a67;
+    text-shadow: 2px 2px 4px #00bfff;
+}
+
+.containerInformacion {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;  
+    border: none; 
+}
+
+th {
+    background-color: #124e83;
+    color: #fff;
+    padding: 8px;
+}
+
+td {
+    background-color: #fff;
+    padding: 12px;
+    border: 1px solid #ccc;
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+tr:hover td {
+    background-color: #bee1f4;
+}
+
+.botonVer {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+    width: 100%;
+}
+
+.botonVer:hover {
+    background-color: #3dd27b;
+}
+
+.botonEditar {
+    background-color: #3e8edf;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+    width: 100%;
+}
+
+.botonEditar:hover {
+    background-color: #275dae;
+}
+
+.botonEliminar {
+    background-color: #e64848;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+    width: 100%;
+}
+
+.botonEliminar:hover {
+    background-color: #ae2727;
+}

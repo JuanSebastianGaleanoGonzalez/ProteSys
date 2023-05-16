@@ -1,5 +1,6 @@
 package com.protesys.utils.chat;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,9 @@ public class Mensaje {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idMensaje;
 
+    @Column(name = "mensaje")
+    private String mensaje;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idChat")
     private Chat chat;
