@@ -12,7 +12,6 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 export class AdminUsuarioCreateComponent {
   opcionSeleccionada: string = 'Usuarios';
   opciones: string[] = ['ADMINISTRADOR', ' ADMIN_GRUPO', 'NORMAL', 'INVITADO'];
-  rol?: string;
   usuarioForm: FormGroup = this.formBuilder.group({
     cedula: ['', Validators.required],
     nombre: ['', Validators.required],
@@ -27,9 +26,6 @@ export class AdminUsuarioCreateComponent {
     private router: Router
   ) { }
 
-  public cambiarOpcion(opcion: string) {
-  }
-  
   onSubmit() {
     let usuario: Usuario = new Usuario();
     usuario.cedula = this.usuarioForm.value.cedula;
@@ -37,13 +33,6 @@ export class AdminUsuarioCreateComponent {
     usuario.correo = this.usuarioForm.value.correo;
     usuario.telefono = this.usuarioForm.value.telefono;
     usuario.rol = this.usuarioForm.value.rol;
-    this.usuarioService.crearUsuario(usuario).subscribe(response => {
-      if(response){
-        console.log("Usuario creado exitosamente.");
-        this.router.navigate(['/admin-home/1']);
-      }else{
-        console.log("Usuario no creado.");
-      }
-    });
+    
   }
 }

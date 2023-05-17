@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-usuario-update.component.css']
 })
 export class AdminUsuarioUpdateComponent {
-
+  opcionSeleccionada: string = 'Usuarios';
+  opciones: string[] = ['ADMINISTRADOR', ' ADMIN_GRUPO', 'NORMAL', 'INVITADO'];
+  
 }

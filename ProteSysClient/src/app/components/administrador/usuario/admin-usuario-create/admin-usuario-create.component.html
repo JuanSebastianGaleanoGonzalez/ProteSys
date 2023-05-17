@@ -1,36 +1,31 @@
 <html>
-
 <body>
     <div class="container">
         <div class="containernav">
             <nav>
                 <ul>
-                    <div class="containerLi" (click)="cambiarOpcion('Inicio')"
-                        [ngClass]="{'selected': opcionSeleccionada === 'Inicio'}">
+                    <div class="containerLi">
                         <li>
                             <a>Inicio</a>
                         </li>
                     </div>
-                    <div class="containerLi" (click)="cambiarOpcion('Usuarios')"
-                        [ngClass]="{'selected': opcionSeleccionada === 'Usuarios'}">
+                    <div class="containerLi"
+                    [ngClass]="{'selected': opcionSeleccionada === 'Usuarios'}">
                         <li>
                             <a>Usuarios</a>
                         </li>
                     </div>
-                    <div class="containerLi" (click)="cambiarOpcion('Grupos')"
-                        [ngClass]="{'selected': opcionSeleccionada === 'Grupos'}">
+                    <div class="containerLi">
                         <li>
                             <a>Grupos</a>
                         </li>
                     </div>
-                    <div class="containerLi" (click)="cambiarOpcion('Pisos')"
-                        [ngClass]="{'selected': opcionSeleccionada === 'Pisos'}">
+                    <div class="containerLi">
                         <li>
                             <a>Pisos</a>
                         </li>
                     </div>
-                    <div class="containerLi" (click)="cambiarOpcion('Casas')"
-                        [ngClass]="{'selected': opcionSeleccionada === 'Casas'}">
+                    <div class="containerLi">
                         <li>
                             <a>Casas</a>
                         </li>
@@ -59,7 +54,7 @@
                 <div class="form-group">
                     <label for="rol" class="form-label">Rol:
                     </label>
-                    <select [(ngModel)]="rol" name="opciones">
+                    <select name="opciones" formControlName="rol" id="rol">
                         <option *ngFor="let opcion of opciones">{{opcion}}</option>
                     </select>
                 </div>
