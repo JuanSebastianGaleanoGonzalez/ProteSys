@@ -3,11 +3,13 @@ C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\services\MensajeService.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\repository\MensajeRepository.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\control\GrupoController.java
+C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\config\KeycloakResolverConfig.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\sensors\AperturaSensorAdapter.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\control\CameraController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\cameras\ICamera.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\MensajeRestController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\model\Credencial.java
+C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\config\DisableSecurityConfiguration.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\GrupoRestController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\control\PisoController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\sensors\TemperaturaSensorAdapter.java
@@ -39,6 +41,7 @@ C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\model\Casa.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\services\ChatService.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\control\SensorController.java
+C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\config\SecurityConfig.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\CasaRestController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\repository\PisoRepository.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\notifications\NotificationFactory.java
