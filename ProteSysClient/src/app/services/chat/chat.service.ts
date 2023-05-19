@@ -14,7 +14,7 @@ export class ChatService {
     })
   };
 
-  private API_SERVER = "http://localhost:8080/chat"
+  private API_SERVER = "http://localhost:9090/chat"
 
   constructor(private httpClient: HttpClient) { }
 

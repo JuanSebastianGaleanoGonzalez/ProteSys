@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-usuario-update',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 export class AdminUsuarioUpdateComponent {
   opcionSeleccionada: string = 'Usuarios';
   opciones: string[] = ['ADMINISTRADOR', ' ADMIN_GRUPO', 'NORMAL', 'INVITADO'];
-  
+  usuarioForm?: FormGroup;
+
+  onSubmit(){}
 }

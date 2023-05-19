@@ -1,7 +1,5 @@
 package com.protesys.config;
 
-import java.time.LocalTime;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;

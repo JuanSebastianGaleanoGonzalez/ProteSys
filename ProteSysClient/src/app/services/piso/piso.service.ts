@@ -13,7 +13,7 @@ export class PisoService {
     })
   };
 
-  private API_SERVER = "http://localhost:8080/piso"
+  private API_SERVER = "http://localhost:9090/piso"
 
   constructor(private httpClient: HttpClient) { }
 

@@ -13,7 +13,7 @@ export class CasaService {
     })
   };
 
-  private API_SERVER = "http://localhost:8080/casa"
+  private API_SERVER = "http://localhost:9090/casa"
 
   constructor(private httpClient: HttpClient) { }
 

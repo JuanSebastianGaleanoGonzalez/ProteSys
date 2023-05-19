@@ -13,7 +13,7 @@ export class GrupoService {
     })
   };
 
-  private API_SERVER = "http://localhost:8080/grupo"
+  private API_SERVER = "http://localhost:9090/grupo"
 
   constructor(private httpClient: HttpClient) { }
 
