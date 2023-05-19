@@ -14,7 +14,7 @@ export class MensajeService {
     })
   };
 
-  private API_SERVER = "http://localhost:8080/mensaje"
+  private API_SERVER = "http://localhost:9090/mensaje"
 
   constructor(private httpClient: HttpClient) { }
 

@@ -14,7 +14,7 @@ export class UsuarioService {
     })
   };
 
-  private API_SERVER = "http://localhost:8080/usuario"
+  private API_SERVER = "http://localhost:9090/usuario"
 
   constructor(private httpClient: HttpClient) { }
 
