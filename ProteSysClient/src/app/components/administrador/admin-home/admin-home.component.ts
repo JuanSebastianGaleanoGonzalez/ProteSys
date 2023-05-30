@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 import { Casa } from 'src/app/model/Casa/casa';
 import { Grupo } from 'src/app/model/Grupo/grupo';
 import { Piso } from 'src/app/model/Piso/piso';
@@ -24,8 +25,11 @@ export class AdminHomeComponent {
     private usuarioService: UsuarioService,
     private grupoService: GrupoService,
     private pisoService: PisoService,
-    private CasaService: CasaService
-  ){}
+    private CasaService: CasaService,
+    private keycloakService: KeycloakService
+  ){
+    
+  }
 
   public cambiarOpcion(opcion: String){
     this.opcionSeleccionada = opcion;

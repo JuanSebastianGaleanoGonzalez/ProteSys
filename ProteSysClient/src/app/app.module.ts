@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AdminHomeComponent } from './components/administrador/admin-home/admin-home.component';
 import { AdminUsuarioCreateComponent } from './components/administrador/usuario/admin-usuario-create/admin-usuario-create.component';
 import { AdminUsuarioUpdateComponent } from './components/administrador/usuario/admin-usuario-update/admin-usuario-update.component';
@@ -20,15 +19,24 @@ import { AdminCasaViewComponent } from './components/administrador/casa/admin-ca
 import { AdminCasaUpdateComponent } from './components/administrador/casa/admin-casa-update/admin-casa-update.component';
 import { AdminCasaCreateComponent } from './components/administrador/casa/admin-casa-create/admin-casa-create.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconGrupo } from "./components/material/icon-grupo/icon-grupo";
+import { IconNotificaciones } from './components/material/icon-notificaciones/icon-notificaciones';
+import { IconChats } from './components/material/icon-chats/icon-chats';
+import { IconDomicilio } from './components/material/icon-domicilio/icon-domicilio';
+import { IconAdministracion } from './components/material/icon-administracion/icon-administracion';
+import { IconAdminGrupo } from './components/material/icon-admin-grupo/icon-admin-grupo';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
-    keycloak.init({
+  keycloak.init({
       config: {
         url: 'http://localhost:8080',
         realm: 'protesys-dev',
-        clientId: 'protesys-app',
+        clientId: 'protesys-app'
       },
+
       initOptions: {
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
@@ -38,41 +46,48 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    SignInComponent,
-    AdminHomeComponent,
-    AdminUsuarioCreateComponent,
-    AdminUsuarioUpdateComponent,
-    AdminUsuarioViewComponent,
-    AdminGrupoViewComponent,
-    AdminGrupoUpdateComponent,
-    AdminGrupoCreateComponent,
-    AdminPisoCreateComponent,
-    AdminPisoUpdateComponent,
-    AdminPisoViewComponent,
-    AdminCasaViewComponent,
-    AdminCasaUpdateComponent,
-    AdminCasaCreateComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    KeycloakAngularModule,
-    HttpClientModule, 
-    ReactiveFormsModule,
-    FormsModule
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService]
-    }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AdminHomeComponent,
+        AdminUsuarioCreateComponent,
+        AdminUsuarioUpdateComponent,
+        AdminUsuarioViewComponent,
+        AdminGrupoViewComponent,
+        AdminGrupoUpdateComponent,
+        AdminGrupoCreateComponent,
+        AdminPisoCreateComponent,
+        AdminPisoUpdateComponent,
+        AdminPisoViewComponent,
+        AdminCasaViewComponent,
+        AdminCasaUpdateComponent,
+        AdminCasaCreateComponent,
+        UserHomeComponent
+    ],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initializeKeycloak,
+            multi: true,
+            deps: [KeycloakService]
+        }
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        KeycloakAngularModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        IconGrupo,
+        IconNotificaciones,
+        IconChats,
+        IconDomicilio,
+        IconAdministracion,
+        IconAdminGrupo
+    ]
 })
 
 export class AppModule { }
