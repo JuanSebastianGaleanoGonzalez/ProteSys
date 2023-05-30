@@ -13,7 +13,7 @@ export class HomeComponent {
   ){}
 
   signIn(){
-    this.router.navigate(['/admin-home']);
+    this.router.navigate(['/user-home']);
   }
   signUp(){
 

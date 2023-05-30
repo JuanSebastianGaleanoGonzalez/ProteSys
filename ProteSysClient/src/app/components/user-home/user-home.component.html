@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <div class="container">
+            <div class="infoUsuario">
+                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Imagen del Usuario" class="imgUsuario">
+                <div class="groupInfo">
+                    <p class="label">Nombre</p>
+                    <p class="nombre">Juan Sebastian Galeano Gonzalez</p>
+                    <p class="label">Cedula</p>
+                    <p class="cedula">1007678869</p>
+                    <p class="label">Correo</p>
+                    <p class="correo">jsebastian-galeano@javeriana.edu.co</p>
+                    <p class="label">Telefono</p>
+                    <p class="telefono">314 469 15 85</p>
+                    <p class="label">Rol</p>
+                    <p class="rol">ADMINISTRADOR</p>
+                </div>
+            </div>
+            <div class="acciones">
+                <div *ngIf="!options" class="buton">
+                    <button (click)="selectOptions()" class="my-button">ACCIONES</button>
+                </div>
+                <div *ngIf="options" class="opciones">
+                    <div class="buton">
+                        <button (click)="selectOptions()" class="my-button">ACCIONES</button>
+                    </div>
+                    <div class="optionGroup">
+                        <p>{{listadoOpciones[0]}}</p>
+                        <p>{{listadoOpciones[1]}}</p>
+                        <p>{{listadoOpciones[2]}}</p>
+                        <p>{{listadoOpciones[3]}}</p>
+                        <p>{{listadoOpciones[4]}}</p>
+                        <p>{{listadoOpciones[5]}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>
