@@ -4,33 +4,84 @@
             <div class="infoUsuario">
                 <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Imagen del Usuario" class="imgUsuario">
                 <div class="groupInfo">
-                    <p class="label">Nombre</p>
-                    <p class="nombre">Juan Sebastian Galeano Gonzalez</p>
-                    <p class="label">Cedula</p>
-                    <p class="cedula">1007678869</p>
-                    <p class="label">Correo</p>
-                    <p class="correo">jsebastian-galeano@javeriana.edu.co</p>
-                    <p class="label">Telefono</p>
-                    <p class="telefono">314 469 15 85</p>
-                    <p class="label">Rol</p>
-                    <p class="rol">ADMINISTRADOR</p>
+                    <div class="label-group">
+                        <p class="label">Nombre:</p>
+                        <p class="nombre">Juan Sebastian Galeano Gonzalez</p>
+                    </div>
+                    <div class="label-group">
+                        <p class="label">Cedula:</p>
+                        <p class="cedula">1007678869</p>
+                    </div>
+                    <div class="label-group">
+                        <p class="label">Correo:</p>
+                        <p class="correo">jsebastian-galeano@javeriana.edu.co</p>
+                    </div>
+                    <div class="label-group">
+                        <p class="label">Telefono:</p>
+                        <p class="telefono">314 469 15 85</p>
+                    </div>
+                    <div class="label-group">
+                        <p class="label">Rol:</p>
+                        <p class="rol">ADMINISTRADOR</p>
+                    </div>
                 </div>
             </div>
+            <div *ngIf="!options" class="buton">
+                <button (click)="selectOptions()" class="my-button-before">HERRAMIENTAS</button>
+            </div>
             <div class="acciones">
-                <div *ngIf="!options" class="buton">
-                    <button (click)="selectOptions()" class="my-button">ACCIONES</button>
-                </div>
                 <div *ngIf="options" class="opciones">
                     <div class="buton">
-                        <button (click)="selectOptions()" class="my-button">ACCIONES</button>
+                        <button (click)="selectOptions()" class="my-button">HERRAMIENTAS</button>
                     </div>
                     <div class="optionGroup">
-                        <p>{{listadoOpciones[0]}}</p>
-                        <p>{{listadoOpciones[1]}}</p>
-                        <p>{{listadoOpciones[2]}}</p>
-                        <p>{{listadoOpciones[3]}}</p>
-                        <p>{{listadoOpciones[4]}}</p>
-                        <p>{{listadoOpciones[5]}}</p>
+                        <div (click)="selectOption('Usuario')" 
+                        [ngClass]="{'selected': selectedOption === 'Usuario'}" 
+                        class="buttonAction">
+                            <icon-grupo class="icon"></icon-grupo>
+                            <p>Usuario</p>
+                        </div>
+                        <div (click)="selectOption('Grupo')"
+                        [ngClass]="{'selected': selectedOption === 'Grupo'}" 
+                        class="buttonAction">
+                            <icon-grupo class="icon"></icon-grupo>
+                            <p>Grupo</p>
+                        </div>
+                        <div (click)="selectOption('Notificaciones')"
+                        [ngClass]="{'selected': selectedOption === 'Notificaciones'}" 
+                        class="buttonAction">
+                            <icon-notificaciones class="icon"></icon-notificaciones>
+                            <p>Notificaciones</p>
+                        </div>
+                        <div (click)="selectOption('Chats')"
+                        [ngClass]="{'selected': selectedOption === 'Chats'}" 
+                        class="buttonAction">
+                            <icon-chats class="icon"></icon-chats>
+                            <p>Chats</p>
+                        </div>
+                        <div (click)="selectOption('Domicilio')" 
+                        [ngClass]="{'selected': selectedOption === 'Domicilio'}" 
+                        class="buttonAction">
+                            <icon-domicilio class="icon"></icon-domicilio>
+                            <p>Domicilio</p>
+                        </div>
+                        <div *ngIf="roles.includes('ROLE_ADMINISTRADOR')"
+                         (click)="selectOption('Administracion')"
+                         [ngClass]="{'selected': selectedOption === 'Administracion'}" 
+                         class="buttonAction">
+                            <icon-administracion class="icon"></icon-administracion>
+                            <p>Administración</p>
+                        </div>
+                        <div *ngIf="roles.includes('ROLE_ADMIN_GRUPO')"
+                         (click)="selectOption('Admin_Grupo')"
+                         [ngClass]="{'selected': selectedOption === 'Admin_Grupo'}" 
+                         class="buttonAction">
+                            <icon-admin-grupo class="icon"></icon-admin-grupo>
+                            <p>Admin - Grupo</p>
+                        </div>
+                    </div>
+                    <div class="buton">
+                        <button (click)="logout()" class="my-button">CERRAR SESIÓN</button>
                     </div>
                 </div>
             </div>

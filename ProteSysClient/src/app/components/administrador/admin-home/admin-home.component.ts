@@ -28,7 +28,6 @@ export class AdminHomeComponent {
     private CasaService: CasaService,
     private keycloakService: KeycloakService
   ){
-    console.log(this.keycloakService.getUserRoles());
     
   }
 

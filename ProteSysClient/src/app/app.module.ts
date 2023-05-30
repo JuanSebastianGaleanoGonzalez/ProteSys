@@ -20,6 +20,13 @@ import { AdminCasaUpdateComponent } from './components/administrador/casa/admin-
 import { AdminCasaCreateComponent } from './components/administrador/casa/admin-casa-create/admin-casa-create.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IconGrupo } from "./components/material/icon-grupo/icon-grupo";
+import { IconNotificaciones } from './components/material/icon-notificaciones/icon-notificaciones';
+import { IconChats } from './components/material/icon-chats/icon-chats';
+import { IconDomicilio } from './components/material/icon-domicilio/icon-domicilio';
+import { IconAdministracion } from './components/material/icon-administracion/icon-administracion';
+import { IconAdminGrupo } from './components/material/icon-admin-grupo/icon-admin-grupo';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -39,41 +46,48 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AdminHomeComponent,
-    AdminUsuarioCreateComponent,
-    AdminUsuarioUpdateComponent,
-    AdminUsuarioViewComponent,
-    AdminGrupoViewComponent,
-    AdminGrupoUpdateComponent,
-    AdminGrupoCreateComponent,
-    AdminPisoCreateComponent,
-    AdminPisoUpdateComponent,
-    AdminPisoViewComponent,
-    AdminCasaViewComponent,
-    AdminCasaUpdateComponent,
-    AdminCasaCreateComponent,
-    UserHomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    KeycloakAngularModule,
-    HttpClientModule, 
-    ReactiveFormsModule,
-    FormsModule
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService]
-    }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AdminHomeComponent,
+        AdminUsuarioCreateComponent,
+        AdminUsuarioUpdateComponent,
+        AdminUsuarioViewComponent,
+        AdminGrupoViewComponent,
+        AdminGrupoUpdateComponent,
+        AdminGrupoCreateComponent,
+        AdminPisoCreateComponent,
+        AdminPisoUpdateComponent,
+        AdminPisoViewComponent,
+        AdminCasaViewComponent,
+        AdminCasaUpdateComponent,
+        AdminCasaCreateComponent,
+        UserHomeComponent
+    ],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initializeKeycloak,
+            multi: true,
+            deps: [KeycloakService]
+        }
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        KeycloakAngularModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        IconGrupo,
+        IconNotificaciones,
+        IconChats,
+        IconDomicilio,
+        IconAdministracion,
+        IconAdminGrupo
+    ]
 })
 
 export class AppModule { }

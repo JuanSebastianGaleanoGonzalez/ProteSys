@@ -17,3 +17,5 @@ html{
     background: -webkit-linear-gradient(to right, #000a67, #50aeee);
     background: linear-gradient(to right, #000a67, #50aeee);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

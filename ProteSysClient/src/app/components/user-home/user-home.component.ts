@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   selector: 'app-user-home',
@@ -6,11 +8,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent {
-  options: boolean = false;
-  listadoOpciones : String[] = ["Grupo", "Notificaciones", "Chats", "Domicilio", "Administracion", "Grupo - Admin."];
-  rol: String = "ROLE_INVITADO";
+  options: boolean = true;
+  selectedOption: string = 'Usuario';
+  roles: String[] = []; 
+
+  constructor(
+    private keycloakService: KeycloakService,
+    private router: Router
+  ){
+    this.roles = this.keycloakService.getUserRoles();
+  }
 
   selectOptions(){
     this.options = !this.options;    
+  }
+
+  selectOption(option: string){
+    this.selectedOption = option;
+  }
+
+  logout(){
+    this.keycloakService.logout('http://localhost:4200');
   }
 }
