@@ -42,131 +42,116 @@ public class DataBaseInit implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         Usuario auxiliarUsuario = new Usuario(1007678869, "Juan Sebastian Galeano Gonzalez",
-                "jsebastian-galeano@javeriana.edu.co", 123456789, Rol.ADMINISTRADOR.toString());
-        Credencial auxiliarCredencial = new Credencial("elsebasgaleano", "123456");
+                "jusebastiangg@gmail.com", 7555555, Rol.ADMINISTRADOR.toString());
+        Credencial auxiliarCredencial = new Credencial("elsebasgaleano", "123456789");
         auxiliarUsuario.setCredencial(auxiliarCredencial);
         this.credencialRepository.save(auxiliarCredencial);
         this.usuarioRepository.save(auxiliarUsuario);
 
-        auxiliarUsuario = new Usuario(1098765432, "Sofía González Pérez", "sgonzalezperez@gmail.com", 1234567,
-                Rol.NORMAL.toString());
-        auxiliarCredencial = new Credencial("sgonzalezperez", "123456");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(1234567890, "Daniel Ramírez Gómez", "dramirezgomez@gmail.com", 2345678,
-                Rol.INVITADO.toString());
-        auxiliarCredencial = new Credencial("dramirezgomez", "234567");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(876543210, "Valeria Torres Sánchez", "vtorressanchez@gmail.com", 3456789,
-                Rol.ADMIN_GRUPO.toString());
-        auxiliarCredencial = new Credencial("vtorressanchez", "345678");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(456789012, "Juan Carlos Hernández Ortiz", "jchernandezortiz@gmail.com", 4567890,
-                Rol.NORMAL.toString());
-        auxiliarCredencial = new Credencial("jchernandezortiz", "456789");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(678901234, "Paola García López", "pgarcialopez@gmail.com", 5678901,
+        auxiliarUsuario = new Usuario(1098765432, "Sofia Maria Torres Rodriguez", "sofiatorres@gmail.com", 1234567,
                 Rol.ADMINISTRADOR.toString());
-        auxiliarCredencial = new Credencial("pgarcialopez", "567890");
+        auxiliarCredencial = new Credencial("sofiatorres", "sofiatorres");
         this.credencialRepository.save(auxiliarCredencial);
         auxiliarUsuario.setCredencial(auxiliarCredencial);
         this.usuarioRepository.save(auxiliarUsuario);
 
-        auxiliarUsuario = new Usuario(890123456, "Jorge Martínez Jiménez", "jmartinezjimenez@gmail.com", 6789012,
-                Rol.INVITADO.toString());
-        auxiliarCredencial = new Credencial("jmartinezjimenez", "678901");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(543210987, "Ana Torres Ramírez", "atorresramirez@gmail.com", 7890123,
-                Rol.ADMIN_GRUPO.toString());
-        auxiliarCredencial = new Credencial("atorresramirez", "789012");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(432109876, "Luisa Fernández Gutiérrez", "lfernandezgutierrez@gmail.com", 8901234,
-                Rol.NORMAL.toString());
-        auxiliarCredencial = new Credencial("lfernandezgutierrez", "890123");
-        this.credencialRepository.save(auxiliarCredencial);
-        auxiliarUsuario.setCredencial(auxiliarCredencial);
-        this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarUsuario = new Usuario(321098765, "Carlos Rodríguez Pérez", "crodriguezperez@gmail.com", 9012345,
+        auxiliarUsuario = new Usuario(1234567890, "Manuel Alejandro Gomez Garcia", "manuelgomez@gmail.com", 2345678,
                 Rol.ADMINISTRADOR.toString());
-        auxiliarCredencial = new Credencial("crodriguezperez", "901234");
+        auxiliarCredencial = new Credencial("manuelgomez", "manuelgomez");
         this.credencialRepository.save(auxiliarCredencial);
         auxiliarUsuario.setCredencial(auxiliarCredencial);
         this.usuarioRepository.save(auxiliarUsuario);
 
-        auxiliarUsuario = new Usuario(654321098, "María García Rodríguez", "mgarciarodriguez@gmail.com", 1123456,
-                Rol.INVITADO.toString());
-        auxiliarCredencial = new Credencial("mgarciarodriguez", "112345");
+        auxiliarUsuario = new Usuario(876543210, "Laura Sofia Hernandez Jimenez", "laurahernandez@gmail.com", 3456789,
+                Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("laurahernandez", "laurahernandez");
         this.credencialRepository.save(auxiliarCredencial);
         auxiliarUsuario.setCredencial(auxiliarCredencial);
         this.usuarioRepository.save(auxiliarUsuario);
 
-        Grupo auxiliarGrupo = new Grupo("Primero", null, 0);
+        auxiliarUsuario = new Usuario(456789012, "Carlos Andres Castro Suarez", "carloscastro@gmail.com", 4567890,
+                Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("carloscastro", "carloscastro");
+        this.credencialRepository.save(auxiliarCredencial);
+        auxiliarUsuario.setCredencial(auxiliarCredencial);
+        this.usuarioRepository.save(auxiliarUsuario);
+
+        auxiliarUsuario = new Usuario(678901234, "Maria Fernanda Ortiz Diaz", "mariaortiz@gmail.com", 5678901,
+                Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("mariaortiz", "mariaortiz");
+        this.credencialRepository.save(auxiliarCredencial);
+        auxiliarUsuario.setCredencial(auxiliarCredencial);
+        this.usuarioRepository.save(auxiliarUsuario);
+
+        auxiliarUsuario = new Usuario(890123456, "Andres Felipe Villa Mejia", "andresvilla@gmail.com", 6789012,
+                Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("andresvilla", "andresvilla");
+        this.credencialRepository.save(auxiliarCredencial);
+        auxiliarUsuario.setCredencial(auxiliarCredencial);
+        this.usuarioRepository.save(auxiliarUsuario);
+
+        auxiliarUsuario = new Usuario(543210987, "Daniela Alejandra Osorio Vargas", "danielaosorio@gmail.com", 7890123,
+                Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("danielaosorio", "danielaosorio");
+        this.credencialRepository.save(auxiliarCredencial);
+        auxiliarUsuario.setCredencial(auxiliarCredencial);
+        this.usuarioRepository.save(auxiliarUsuario);
+
+        auxiliarUsuario = new Usuario(432109876, "Jorge Eduardo Ramirez Cardenas", "jorgeramirez@gmail.com", 8901234,
+                Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("jorgeramirez", "jorgeramirez");
+        this.credencialRepository.save(auxiliarCredencial);
+        auxiliarUsuario.setCredencial(auxiliarCredencial);
+        this.usuarioRepository.save(auxiliarUsuario);
+
+        auxiliarUsuario = new Usuario(432109876, "Juan David Perez Lopez", "davidperez@gmail.com", 8901235,
+        Rol.ADMINISTRADOR.toString());
+        auxiliarCredencial = new Credencial("davidperez", "davidperez");
+        this.credencialRepository.save(auxiliarCredencial);
+        auxiliarUsuario.setCredencial(auxiliarCredencial);
+        this.usuarioRepository.save(auxiliarUsuario);
+
+        Grupo auxiliarGrupo = new Grupo("Mi grupo", null, 0);
         this.grupoRepository.save(auxiliarGrupo);
         auxiliarUsuario = this.usuarioRepository.findById((long) 1).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 2).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 3).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
         this.usuarioRepository.save(auxiliarUsuario);
-
-
-        auxiliarGrupo = new Grupo("Segundo", null, 0);
-        this.grupoRepository.save(auxiliarGrupo);
         auxiliarUsuario = this.usuarioRepository.findById((long) 4).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 5).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 6).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
         this.usuarioRepository.save(auxiliarUsuario);
-
-        auxiliarGrupo = new Grupo("Tercero", null, 0);
-        this.grupoRepository.save(auxiliarGrupo);
         auxiliarUsuario = this.usuarioRepository.findById((long) 7).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 8).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 9).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
         this.usuarioRepository.save(auxiliarUsuario);
+        auxiliarUsuario = this.usuarioRepository.findById((long) 10).get();
+        auxiliarUsuario.setGrupo(auxiliarGrupo);
+        this.usuarioRepository.save(auxiliarUsuario);
+
 
         Piso auxiliarPiso = new Piso("AAA111", 1);
         auxiliarPiso.setGrupo(this.grupoRepository.findById((long) 1).get());
         this.pisoRepository.save(auxiliarPiso);
 
-        auxiliarPiso = new Piso("BBB222", 2);
-        auxiliarPiso.setGrupo(this.grupoRepository.findById((long) 2).get());
-        this.pisoRepository.save(auxiliarPiso);
-
-
-        auxiliarPiso = new Piso("CCC333", 3);
-        auxiliarPiso.setGrupo(this.grupoRepository.findById((long) 3).get());
-        this.pisoRepository.save(auxiliarPiso);
-
         Casa auxiliarCasa = new Casa("Casa1", "La Candelaria", "Calle 9  # 3 - 15");
         this.casaRepository.save(auxiliarCasa);
         this.pisoRepository.findById((long)1).get().setCasa(auxiliarCasa);
-        this.pisoRepository.findById((long)2).get().setCasa(auxiliarCasa);
-        this.pisoRepository.findById((long)3).get().setCasa(auxiliarCasa);
     }
 
 }

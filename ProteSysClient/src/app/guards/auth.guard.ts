@@ -6,7 +6,6 @@ import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
   providedIn: 'root'
 })
 export class AuthGuard extends KeycloakAuthGuard {
-
   constructor(
     protected override readonly router: Router,
     protected readonly keycloak: KeycloakService
@@ -17,7 +16,7 @@ export class AuthGuard extends KeycloakAuthGuard {
   override async isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
     if (!this.authenticated) {
       await this.keycloak.login({
-        redirectUri: window.location.origin + state.url
+        redirectUri: window.location.origin + state.url 
       });
     }
     return this.authenticated;

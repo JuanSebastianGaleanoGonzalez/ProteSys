@@ -2,27 +2,27 @@
     <body>
         <div class="container">
             <div class="infoUsuario">
-                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Imagen del Usuario" class="imgUsuario">
+                <img src={{imageUsuario}} alt="Imagen del Usuario" class="imgUsuario">
                 <div class="groupInfo">
                     <div class="label-group">
                         <p class="label">Nombre:</p>
-                        <p class="nombre">Juan Sebastian Galeano Gonzalez</p>
+                        <p class="nombre">{{usuario.nombre}}</p>
                     </div>
                     <div class="label-group">
                         <p class="label">Cedula:</p>
-                        <p class="cedula">1007678869</p>
+                        <p class="cedula">{{usuario.cedula}}</p>
                     </div>
                     <div class="label-group">
                         <p class="label">Correo:</p>
-                        <p class="correo">jsebastian-galeano@javeriana.edu.co</p>
+                        <p class="correo">{{usuario.correo}}</p>
                     </div>
                     <div class="label-group">
                         <p class="label">Telefono:</p>
-                        <p class="telefono">314 469 15 85</p>
+                        <p class="telefono">{{usuario.telefono}}</p>
                     </div>
                     <div class="label-group">
                         <p class="label">Rol:</p>
-                        <p class="rol">ADMINISTRADOR</p>
+                        <p class="rol">{{usuario.rol}}</p>
                     </div>
                 </div>
             </div>
