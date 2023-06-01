@@ -6,6 +6,10 @@ header {
     z-index: 1;
 }
 
+p, a, h3{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body{
     display: flex;
     flex-direction: column;

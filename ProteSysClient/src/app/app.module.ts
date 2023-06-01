@@ -36,7 +36,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         realm: 'protesys-dev',
         clientId: 'protesys-app'
       },
-
+      loadUserProfileAtStartUp: true,
       initOptions: {
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
