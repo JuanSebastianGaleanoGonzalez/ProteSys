@@ -7,8 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.protesys.model.Usuario;
+import com.protesys.services.NotificationGraveService;
 
 @Entity
 @Table(name = "notification_grave")
@@ -78,6 +82,15 @@ public class NotificationGrave implements Notification{
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    @Autowired
+    @Transient
+    NotificationGraveService notificationGraveService;
+
+    @Override
+    public void crearNotification() {
+        this.notificationGraveService.createNotificationGrave(this);
     }
 
     

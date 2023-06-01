@@ -1,5 +1,5 @@
 package com.protesys.utils.notifications;
 
-public interface NotificationFactory {
-    public Notification crearNotification();
+public abstract class NotificationFactory {
+    public abstract Notification crearNotification();    
 }

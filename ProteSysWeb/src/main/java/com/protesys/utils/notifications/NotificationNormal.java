@@ -7,8 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.protesys.model.Usuario;
+import com.protesys.services.NotificationNormalService;
 
 @Entity
 @Table(name = "notification_normal")
@@ -66,6 +70,15 @@ public class NotificationNormal implements Notification{
 
     public void setContenido(String contenido) {
         this.contenido = contenido;
+    }
+
+    @Autowired
+    @Transient
+    NotificationNormalService notificationNormalService;
+
+    @Override
+    public void crearNotification() {
+        this.notificationNormalService.createNotificationNormal(this);
     }
     
     

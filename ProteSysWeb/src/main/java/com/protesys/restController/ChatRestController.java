@@ -16,12 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.protesys.services.ChatService;
 import com.protesys.utils.chat.Chat;
 
+import com.protesys.utils.notifications.NotificationFactory;
+import com.protesys.utils.notifications.NotificationNormal;
+import com.protesys.utils.notifications.NotificationNormalFactory;
+
 @RestController
 @RequestMapping(value = "/chat")
 public class ChatRestController {
 
     @Autowired
     ChatService chatService;
+
+    NotificationFactory notificationFactory = new NotificationNormalFactory();
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @GetMapping(value = "/search")
@@ -44,6 +50,10 @@ public class ChatRestController {
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PostMapping(value = "/create")
     public boolean crearChat(@RequestBody Chat chat) {
+        NotificationNormal notificationNormal = (NotificationNormal) notificationFactory.crearNotification();
+        notificationNormal.setAsunto("Mensaje Recibido");
+        notificationNormal.setContenido("Mensajeeeee");
+        notificationNormal.crearNotification();
         return this.chatService.createChat(chat);
     }
 
