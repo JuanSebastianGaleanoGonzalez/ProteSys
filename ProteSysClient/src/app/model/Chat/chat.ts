@@ -4,6 +4,7 @@ import { Usuario } from "../Usuario/usuario";
 
 export class Chat {
     public idChat?: number;
+    public nombre?: string;
     public mensajes?: Mensaje[];
     public grupo?: Grupo;
     public usuarios?: Usuario[];

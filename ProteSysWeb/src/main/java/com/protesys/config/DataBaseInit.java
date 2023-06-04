@@ -1,5 +1,7 @@
 package com.protesys.config;
 
+import java.util.Calendar;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,12 @@ import com.protesys.model.Piso;
 import com.protesys.model.Rol;
 import com.protesys.model.Usuario;
 import com.protesys.repository.CasaRepository;
+import com.protesys.repository.ChatRepository;
 import com.protesys.repository.CredencialRepository;
 import com.protesys.repository.GrupoRepository;
 import com.protesys.repository.PisoRepository;
 import com.protesys.repository.UsuarioRepository;
+import com.protesys.utils.chat.Chat;
 
 @Component
 public class DataBaseInit implements ApplicationRunner {
@@ -37,10 +41,13 @@ public class DataBaseInit implements ApplicationRunner {
     @Autowired
     CasaRepository casaRepository;
 
+    @Autowired
+    ChatRepository chatRepository;
+
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
-
+/*
         Usuario auxiliarUsuario = new Usuario(1007678869, "Juan Sebastian Galeano Gonzalez",
                 "jusebastiangg@gmail.com", 7555555, Rol.ADMINISTRADOR.toString());
         Credencial auxiliarCredencial = new Credencial("elsebasgaleano", "123456789");
@@ -111,9 +118,12 @@ public class DataBaseInit implements ApplicationRunner {
         auxiliarUsuario.setCredencial(auxiliarCredencial);
         this.usuarioRepository.save(auxiliarUsuario);
 
-        Grupo auxiliarGrupo = new Grupo("Mi grupo", null, 0);
-        this.grupoRepository.save(auxiliarGrupo);
-        auxiliarUsuario = this.usuarioRepository.findById((long) 1).get();
+        Calendar calendar = Calendar.getInstance();
+        
+        Grupo auxiliarGrupo = new Grupo("Mi grupo", calendar.getTime(), 0, "Normal");
+       this.grupoRepository.save(auxiliarGrupo);
+       
+       auxiliarUsuario = this.usuarioRepository.findById((long) 1).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
         this.usuarioRepository.save(auxiliarUsuario);
         auxiliarUsuario = this.usuarioRepository.findById((long) 2).get();
@@ -144,7 +154,6 @@ public class DataBaseInit implements ApplicationRunner {
         auxiliarUsuario.setGrupo(auxiliarGrupo);
         this.usuarioRepository.save(auxiliarUsuario);
 
-
         Piso auxiliarPiso = new Piso("AAA111", 1);
         auxiliarPiso.setGrupo(this.grupoRepository.findById((long) 1).get());
         this.pisoRepository.save(auxiliarPiso);
@@ -152,6 +161,6 @@ public class DataBaseInit implements ApplicationRunner {
         Casa auxiliarCasa = new Casa("Casa1", "La Candelaria", "Calle 9  # 3 - 15");
         this.casaRepository.save(auxiliarCasa);
         this.pisoRepository.findById((long)1).get().setCasa(auxiliarCasa);
-    }
+ */    }
 
 }

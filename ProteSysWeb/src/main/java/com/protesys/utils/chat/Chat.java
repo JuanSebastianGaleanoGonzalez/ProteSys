@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -36,6 +37,9 @@ public class Chat {
     @JoinColumn(name = "grupo_id")
     private Grupo grupo;
 
+    @Column(name = "nombre")
+    private String nombre;
+    
     @ManyToMany
     @JoinTable(
         name = "chat_usuario", 
@@ -75,5 +79,21 @@ public class Chat {
 
     public void setGrupo(Grupo grupo) {
         this.grupo = grupo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 }

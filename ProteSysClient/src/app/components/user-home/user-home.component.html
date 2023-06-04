@@ -1,31 +1,15 @@
 <html>
     <body>
         <div class="container">
-            <div class="infoUsuario">
-                <img src={{imageUsuario}} alt="Imagen del Usuario" class="imgUsuario">
-                <div class="groupInfo">
-                    <div class="label-group">
-                        <p class="label">Nombre:</p>
-                        <p class="nombre">{{usuario.nombre}}</p>
-                    </div>
-                    <div class="label-group">
-                        <p class="label">Cedula:</p>
-                        <p class="cedula">{{usuario.cedula}}</p>
-                    </div>
-                    <div class="label-group">
-                        <p class="label">Correo:</p>
-                        <p class="correo">{{usuario.correo}}</p>
-                    </div>
-                    <div class="label-group">
-                        <p class="label">Telefono:</p>
-                        <p class="telefono">{{usuario.telefono}}</p>
-                    </div>
-                    <div class="label-group">
-                        <p class="label">Rol:</p>
-                        <p class="rol">{{usuario.rol}}</p>
-                    </div>
-                </div>
-            </div>
+            <div class="option">
+            <app-info-usuario *ngIf="selectedOption === 'Usuario'"></app-info-usuario>
+            <app-info-grupo *ngIf="selectedOption === 'Grupo'"></app-info-grupo>
+            <app-notifications *ngIf="selectedOption === 'Notificaciones'"></app-notifications>
+            <app-chats *ngIf="selectedOption === 'Chats'"></app-chats>
+            <app-info-domicilio *ngIf="selectedOption === 'Domicilio'"></app-info-domicilio>
+            <app-administracion *ngIf="selectedOption === 'Administracion'"></app-administracion>
+            <app-admin-grupo *ngIf="selectedOption === 'Admin_Grupo'"></app-admin-grupo>
+        </div>
             <div *ngIf="!options" class="buton">
                 <button (click)="selectOptions()" class="my-button-before">HERRAMIENTAS</button>
             </div>

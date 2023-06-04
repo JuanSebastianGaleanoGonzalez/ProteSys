@@ -1,0 +1,77 @@
+.label {
+    color: #50aeee;
+    font-size: 1vw;
+    padding: 1%;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    width: 40%;
+}
+
+
+.data{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2vw;
+    width: 35%;
+
+}
+
+.data-state {
+    font-size: 2vw;
+    font-weight: bold;
+    color: #000a67;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 35%; 
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.infoGrupo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+    width: 60%;
+    height: 100%;
+}
+
+.infoGrupo::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+}
+
+.infoGrupo::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.imagenGrupo{
+    width: 40%;
+
+    display: grid;
+    place-items: center;
+    border-left: 4px solid #000a67;
+
+}
+
+.label-group {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 3%;
+}
+
+.imagenGrupo img{
+    border-radius: 50%;
+    border: 1vw solid #000a67;
+    box-shadow: 0 0.2vw 2vw rgba(0, 0, 0, 0.4);
+}

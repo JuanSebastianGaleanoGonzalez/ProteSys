@@ -27,8 +27,6 @@ public class ChatRestController {
     @Autowired
     ChatService chatService;
 
-    NotificationFactory notificationFactory = new NotificationNormalFactory();
-
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @GetMapping(value = "/search")
     public List<Chat> listarChats() {
@@ -49,11 +47,7 @@ public class ChatRestController {
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PostMapping(value = "/create")
-    public boolean crearChat(@RequestBody Chat chat) {
-        NotificationNormal notificationNormal = (NotificationNormal) notificationFactory.crearNotification();
-        notificationNormal.setAsunto("Mensaje Recibido");
-        notificationNormal.setContenido("Mensajeeeee");
-        notificationNormal.crearNotification();
+    public boolean crearChat(@RequestBody Chat chat) {  
         return this.chatService.createChat(chat);
     }
 

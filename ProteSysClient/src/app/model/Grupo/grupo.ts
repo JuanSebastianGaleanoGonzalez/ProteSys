@@ -5,8 +5,8 @@ import { Usuario } from "../Usuario/usuario";
 export class Grupo {
     public idGrupo?: number;
     public nombre?: string;
-    public fecha?: Date;
-    public cantidadUsuarios?: number;
+    public fecha_creacion?: Date;
+    public cantidad_usuarios?: number;
     public usuarios?: Usuario[];
     public chats?: Chat[];
     public estado?: string;
