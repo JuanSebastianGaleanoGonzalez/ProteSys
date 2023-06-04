@@ -1,0 +1,29 @@
+<html>
+
+<body>
+    <div class="container">
+        <div class="infoGrupo">
+            <div class="label-group">
+                <p class="label">Nombre:</p>
+                <p class="data">{{grupo?.nombre}}</p>
+            </div>
+            <div class="label-group">
+                <p class="label">Cantidad de Usuarios: </p>
+                <p class="data">{{grupo?.cantidad_usuarios}}</p>
+            </div>
+            <div class="label-group">
+                <p class="label">Fecha de Creacion:</p>
+                <p class="data">{{ grupo?.fecha_creacion | date: 'dd MMM yyyy' }}</p>
+            </div>
+            <div class="label-group">
+                <p class="label">Estado:</p>
+                <p class="data-state">{{grupo?.estado}}</p>
+            </div>
+        </div>
+        <div class="imagenGrupo">
+            <img src={{imageGrupo}} alt="Imagen del Grupo" class="imgGrupo">
+        </div>
+    </div>
+</body>
+
+</html>

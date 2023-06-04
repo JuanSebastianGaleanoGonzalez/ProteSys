@@ -52,13 +52,17 @@ public class Grupo {
     public Grupo() {
     }
 
-    public Grupo(String nombre, Date fecha_creacion, int cantidad_usuarios) {
+
+    //ACCESSORS
+
+    public Grupo(String nombre, Date fecha_creacion, int cantidad_usuarios, String estado) {
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
         this.cantidad_usuarios = cantidad_usuarios;
+        this.estado = estado;
     }
 
-    //ACCESSORS
+
 
     public String getNombre() {
         return nombre;

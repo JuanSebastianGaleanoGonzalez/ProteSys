@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.protesys.services.MensajeService;
 import com.protesys.utils.chat.Mensaje;
+import com.protesys.utils.notifications.NotificationFactory;
+import com.protesys.utils.notifications.NotificationNormal;
+import com.protesys.utils.notifications.NotificationNormalFactory;
 
 @RestController
 @RequestMapping(value = "/mensaje")
@@ -23,6 +26,9 @@ public class MensajeRestController {
     @Autowired
     MensajeService mensajeService;
 
+    NotificationFactory notificationFactory = new NotificationNormalFactory();
+    NotificationNormal notificationNormal = (NotificationNormal) notificationFactory.crearNotification();
+    
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @GetMapping(value = "/search")
     public List<Mensaje> listarMensajes() {
@@ -44,6 +50,11 @@ public class MensajeRestController {
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PostMapping(value = "/create")
     public boolean crearMensaje(@RequestBody Mensaje mensaje) {
+
+        notificationNormal.setAsunto("Mensaje Recibido");
+        notificationNormal.setContenido("Mensajeeeee");
+        notificationNormal.crearNotification();
+        
         return this.mensajeService.createMensaje(mensaje);
     }
 

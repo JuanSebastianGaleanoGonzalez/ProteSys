@@ -10,12 +10,11 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
   templateUrl: './user-home.component.html',
   styleUrls: ['./user-home.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class UserHomeComponent {
   options: boolean = true;
-  selectedOption: string = 'Usuario';
+  selectedOption: string = 'Grupo';
   roles: String[] = [];
-  usuario: Usuario = new Usuario();
-  imageUsuario: string = 'https://rickandmortyapi.com/api/character/avatar/';
+  
 
   constructor(
     private keycloakService: KeycloakService,
@@ -24,26 +23,7 @@ export class UserHomeComponent implements OnInit {
   ) {
     this.roles = this.keycloakService.getUserRoles();
   }
-  ngOnInit(): void {
-    this.usuarioService.traerUsuarios().subscribe(response => {
-      for (let usuario of response) {
-        if (usuario.credencial?.username === this.keycloakService.getUsername()) {
-          this.usuario = usuario;
-          this.imageUsuario = this.imageUsuario + this.usuario.idUsuario + '.jpeg';
-          if (this.roles.includes('ROLE_ADMINISTRADOR')) {
-            this.usuario.rol = 'ADMINISTRADOR';
-          } else if (this.roles.includes('ROLE_ADMIN_GRUPO')) {
-            this.usuario.rol = 'ADMINISTRADOR DE GRUPO';
-          }
-          else if (this.roles.includes('ROLE_NORMAL')) {
-            this.usuario.rol = 'NORMAL';
-          } else {
-            this.usuario.rol = 'INVITADO';
-          }
-        }
-      }
-    });
-  }
+  
 
   selectOptions() {
     this.options = !this.options;

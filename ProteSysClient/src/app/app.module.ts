@@ -27,6 +27,13 @@ import { IconChats } from './components/material/icon-chats/icon-chats';
 import { IconDomicilio } from './components/material/icon-domicilio/icon-domicilio';
 import { IconAdministracion } from './components/material/icon-administracion/icon-administracion';
 import { IconAdminGrupo } from './components/material/icon-admin-grupo/icon-admin-grupo';
+import { InfoUsuarioComponent } from './components/user-home/info-usuario/info-usuario/info-usuario.component';
+import { InfoGrupoComponent } from './components/user-home/info-grupo/info-grupo/info-grupo.component';
+import { NotificationsComponent } from './components/user-home/notifications/notifications/notifications.component';
+import { ChatsComponent } from './components/user-home/chats/chats/chats.component';
+import { InfoDomicilioComponent } from './components/user-home/info-domicilio/info-domicilio/info-domicilio.component';
+import { AdministracionComponent } from './components/user-home/administracion/administracion/administracion.component';
+import { AdminGrupoComponent } from './components/user-home/admin-grupo/admin-grupo/admin-grupo.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -62,7 +69,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
         AdminCasaViewComponent,
         AdminCasaUpdateComponent,
         AdminCasaCreateComponent,
-        UserHomeComponent
+        UserHomeComponent,
+        InfoUsuarioComponent,
+        InfoGrupoComponent,
+        NotificationsComponent,
+        ChatsComponent,
+        InfoDomicilioComponent,
+        AdministracionComponent,
+        AdminGrupoComponent
     ],
     providers: [
         {

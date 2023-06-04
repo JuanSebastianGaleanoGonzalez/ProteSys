@@ -1,5 +1,7 @@
 package com.protesys.config;
 
+import java.util.Calendar;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,7 +113,9 @@ public class DataBaseInit implements ApplicationRunner {
         auxiliarUsuario.setCredencial(auxiliarCredencial);
         this.usuarioRepository.save(auxiliarUsuario);
 
-        Grupo auxiliarGrupo = new Grupo("Mi grupo", null, 0);
+        Calendar calendar = Calendar.getInstance();
+        
+        Grupo auxiliarGrupo = new Grupo("Mi grupo", calendar.getTime(), 0, "Normal");
         this.grupoRepository.save(auxiliarGrupo);
         auxiliarUsuario = this.usuarioRepository.findById((long) 1).get();
         auxiliarUsuario.setGrupo(auxiliarGrupo);
