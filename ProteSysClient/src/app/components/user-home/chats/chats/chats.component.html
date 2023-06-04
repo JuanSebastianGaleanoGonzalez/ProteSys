@@ -1,1 +1,44 @@
-<p>chats works!</p>
+<body>
+    <html>
+    <div class="container">
+        <div class="listado-chats">
+            <div class="chats-empty" *ngIf="chats.length === 0">
+                <p>No hay chats.</p>
+                <p>Crea un chat!</p>
+            </div>
+            <div class="no-chats-empty" *ngIf="chats.length > 0">
+                <div class="titulo-chats">
+                    <h3>Listado de Chats:</h3>
+                </div>
+                <div class="chats">
+                    <div class="card-chat" *ngFor="let number of numbers" 
+                    [ngClass]="{'selected': selectedOption === number}"
+                    (click)="selectOption(number)">
+                        <div class="foto-chat">
+                            <img src={{chatImgSrc}} alt="Imagen Chat">
+                        </div>
+                        <div class="info-chat">
+                            <p class="nombre-chat">{{chats[0].nombre}}</p>
+                            <p class="primer-mensaje">{{mensajes[0].mensaje}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="crear-button">
+                <button class="my-button">
+                    Crear
+                </button>
+            </div>
+        </div>
+        <div class="listado-mensajes">
+            <div class="no-messages" *ngIf="mensajes.length === 0">
+                <p>No hay Mensajes. Envía un mensaje!</p>
+            </div>
+            <div class="messages" *ngIf="mensajes.length > 0">
+
+            </div>
+        </div>
+    </div>
+
+    </html>
+</body>
