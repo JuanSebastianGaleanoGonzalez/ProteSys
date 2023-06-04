@@ -20,6 +20,8 @@ export class ChatsComponent implements OnInit{
   numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
   chatImgSrc: string = "https://rickandmortyapi.com/api/character/avatar/260.jpeg";
   selectedOption?: number;
+  inputMessage?: string;
+  crear_chat: boolean = true;
 
   constructor(
     private keycloakService: KeycloakService,
@@ -67,5 +69,13 @@ export class ChatsComponent implements OnInit{
 
   public selectOption(option: number){
     this.selectedOption = option;
+  }
+
+  public sendMessage(messageContent: string){
+    console.log(messageContent);  
+  }
+
+  public form_create(){
+    this.crear_chat = !this.crear_chat;
   }
 }

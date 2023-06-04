@@ -1,49 +1,53 @@
-.container{
+.container {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
 }
 
-.listado-chats{
+.listado-chats {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30%;
-    background-color:#000a67;
+    background-color: #000a67;
     border-right: 0.2vw solid #000a67;
 }
 
-.card-chat.selected{
+.card-chat.selected {
     background-color: cornflowerblue;
 }
-.listado-mensajes{
+
+.listado-mensajes {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 70%;
     height: 100%;
-    padding: 2%;
 }
 
-.card-chat{
+.card-chat {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 5%;
     border-top: 0.1vw solid #000a67;
 }
-.card-chat:hover{
+
+.card-chat:hover {
     background-color: cornflowerblue;
 }
-.foto-chat{
+
+.foto-chat {
     width: 20%;
 }
-.foto-chat img{
+
+.foto-chat img {
     width: 100%;
     border-radius: 100%;
 }
 
-.info-chat{
+.info-chat {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -51,20 +55,22 @@
     overflow: hidden;
 }
 
-.nombre-chat{
+.nombre-chat {
     font-size: 1.4vw;
 }
 
-.primer-mensaje{
+.primer-mensaje {
     font-size: 1vw;
+    white-space: nowrap;
 }
 
-.no-chats-empty{
+.no-chats-empty {
     width: 100%;
     height: 93%;
     background-color: aliceblue;
 }
-.chats-empty{
+
+.chats-empty {
     width: 100%;
     height: 93%;
     background-color: aliceblue;
@@ -74,21 +80,23 @@
     justify-content: center;
 }
 
-.chats-empty p{
+.chats-empty p {
     font-size: 1.5vw;
 }
-.titulo-chats{
+
+.titulo-chats {
     display: grid;
     place-items: center;
     height: 8%;
 }
 
-.titulo-chats h3{
+.titulo-chats h3 {
     color: #000a67;
 }
-.chats{
+
+.chats {
     width: 100%;
-    height: 92%;    
+    height: 92%;
     padding-left: 2%;
     flex-wrap: nowrap;
     overflow-y: scroll;
@@ -103,7 +111,7 @@
     background-color: transparent;
 }
 
-.crear-button{
+.crear-button {
     display: grid;
     place-items: center;
     width: 100%;
@@ -124,14 +132,14 @@
     color: aliceblue;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  
-  .my-button:hover {
+}
+
+.my-button:hover {
     background-color: aliceblue;
     color: #000a67;
-  }
-  
-  .my-button-before {
+}
+
+.my-button-before {
     padding: 10px 20px;
     font-size: 1.2vw;
     font-weight: bold;
@@ -145,10 +153,101 @@
     position: absolute;
     top: 3%;
     right: 3%;
-  }
-  
-  .my-button-before:hover {
+}
+
+.my-button-before:hover {
     background-color: #000a67;
     color: aliceblue;
-  }
-  
+}
+
+.no-messages {
+    height: 95%;
+}
+
+.messages {
+    height: 95%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+}
+
+.messages::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.send-message {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    padding: 1.5%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.icon {
+    color: aliceblue;
+    display: grid;
+    place-items: center;
+    padding: 1%;
+    border-radius: 100%;
+    background-color: #000a67;
+}
+
+.message-content {
+    width: 80%;
+    padding: 2%;
+}
+
+.message-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+    padding: 2%;
+    background-color: cornflowerblue;
+}
+
+.message-text {
+    width: 100%;
+    padding-top: 2%;
+    font-size: 1vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.user-name {
+    width: 85%;
+}
+
+.user-message {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.user-message img {
+    width: 7%;
+    border-radius: 100%;
+}
+
+.create-chat {
+    width: 70%;
+    height: 100%;
+}

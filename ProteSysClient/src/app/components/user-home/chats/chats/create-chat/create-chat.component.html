@@ -1,0 +1,40 @@
+<html>
+
+<body>
+  <div class="container">
+    <form (ngSubmit)="crearChat()">
+      <div class="label-group">
+        <label for="nombreChat">Nombre del Chat:</label>
+        <input type="text" id="nombreChat" [(ngModel)]="nombreChat">
+      </div>
+      <div class="asigned-list">
+        <p class="titulo">Usuarios en el chat:</p>
+        <ul *ngIf="usuariosAsignados.length > 0">
+          <li class="usuario" *ngFor="let usuarioAsignado of usuariosAsignados">
+            <p>{{usuarioAsignado.nombre}}</p>
+            <app-icon-minus class="minus" (click)="descartarUsuario(usuarioAsignado)"></app-icon-minus>
+          </li>
+        </ul>
+        <p class="lista-vacia" *ngIf="usuariosAsignados.length === 0">
+          No hay usuarios asignados.
+        </p>
+      </div>
+      <div class="non-asigned-list">
+        <p class="titulo">Usuarios fuera del chat:</p>
+        <ul *ngIf="usuariosNoAsignados.length > 0">
+          <li class="usuario" *ngFor="let usuarioNoAsignado of usuariosNoAsignados">
+            <p>{{usuarioNoAsignado.nombre}}</p>
+            <app-icon-plus class="plus" (click)="agregarUsuario(usuarioNoAsignado)"></app-icon-plus>
+          </li>
+        </ul>
+        <p *ngIf="usuariosNoAsignados.length === 0" class="lista-vacia">
+          Todos los usuarios han sido asignados.</p>
+      </div>
+      <div class="button-submit">
+        <button class="my-button" type="submit">Crear Chat</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
