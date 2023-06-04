@@ -21,7 +21,7 @@ export class ChatsComponent implements OnInit{
   chatImgSrc: string = "https://rickandmortyapi.com/api/character/avatar/260.jpeg";
   selectedOption?: number;
   inputMessage?: string;
-  crear_chat: boolean = true;
+  crear_chat: boolean = false;
 
   constructor(
     private keycloakService: KeycloakService,

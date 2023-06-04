@@ -181,3 +181,8 @@ li p{
     height: 40%;
     width: 100%;
 }
+
+.lista-vacia{
+    display: grid;
+    place-items: center;
+}

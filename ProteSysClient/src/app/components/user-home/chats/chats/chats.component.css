@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 20%;
     background-color: #000a67;
     border-right: 0.2vw solid #000a67;
 }
@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
 
@@ -56,11 +56,11 @@
 }
 
 .nombre-chat {
-    font-size: 1.4vw;
+    font-size: 1vw;
 }
 
 .primer-mensaje {
-    font-size: 1vw;
+    font-size: 0.8vw;
     white-space: nowrap;
 }
 
@@ -203,8 +203,8 @@
 }
 
 .message-content {
-    width: 80%;
-    padding: 2%;
+    width: 87%;
+    padding: 1%;
 }
 
 .message-container {
@@ -220,18 +220,19 @@
 .message-text {
     width: 100%;
     padding-top: 2%;
-    font-size: 1vw;
+    font-size: 0.8vw;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .textContainer {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
 }
 
 .user-name {
-    width: 85%;
+    width: 93%;
+    font-size: 0.7vw;
 }
 
 .user-message {
@@ -239,15 +240,15 @@
     flex-direction: row;
     width: 100%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .user-message img {
-    width: 7%;
+    width: 5%;
     border-radius: 100%;
 }
 
 .create-chat {
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
