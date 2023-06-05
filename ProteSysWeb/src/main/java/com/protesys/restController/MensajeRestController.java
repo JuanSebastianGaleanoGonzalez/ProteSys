@@ -49,12 +49,10 @@ public class MensajeRestController {
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PostMapping(value = "/create")
-    public boolean crearMensaje(@RequestBody Mensaje mensaje) {
-
-        notificationNormal.setAsunto("Mensaje Recibido");
-        notificationNormal.setContenido("Mensajeeeee");
-        notificationNormal.crearNotification();
-        
+    public Mensaje crearMensaje(@RequestBody Mensaje mensaje) {
+        //notificationNormal.setAsunto("Mensaje Recibido");
+        //notificationNormal.setContenido("Mensajeeeee");
+        //notificationNormal.crearNotification();
         return this.mensajeService.createMensaje(mensaje);
     }
 

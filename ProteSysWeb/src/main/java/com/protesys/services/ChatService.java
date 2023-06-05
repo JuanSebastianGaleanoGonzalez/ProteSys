@@ -10,13 +10,18 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.protesys.repository.ChatRepository;
+import com.protesys.repository.MensajeRepository;
 import com.protesys.utils.chat.Chat;
+import com.protesys.utils.chat.Mensaje;
 
 @Service
 public class ChatService {
     
     @Autowired
     ChatRepository chatRepository;
+
+    @Autowired
+    MensajeRepository mensajeRepository;
 
     public List<Chat> getChats(){
         try{
@@ -52,16 +57,20 @@ public class ChatService {
         }
     }
 
-    public boolean updateChat(Chat chat){
+    public Chat updateChat(Chat chat){
         try{
             if(this.getChat(chat.getIdChat()) != null){
                 this.chatRepository.save(chat);
-                return true;
+                for(Mensaje mensaje: chat.getMensajes()){
+                    mensaje.setChat(chat);
+                    this.mensajeRepository.save(mensaje);
+                }
+                return chat;
             }else{
                 throw new NoSuchElementException("No se puede actualizar un chat que no existe.");
             }           
         }catch(PersistenceException | NoSuchElementException exception){
-            return false;
+            return null;
         }
     }
 }

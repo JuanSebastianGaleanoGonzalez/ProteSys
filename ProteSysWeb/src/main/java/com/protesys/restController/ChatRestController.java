@@ -53,7 +53,7 @@ public class ChatRestController {
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PutMapping(value = "/update")
-    public boolean actualizarChat(@RequestBody Chat chat) {
+    public Chat actualizarChat(@RequestBody Chat chat) {
         return this.chatService.updateChat(chat);
     }
 }

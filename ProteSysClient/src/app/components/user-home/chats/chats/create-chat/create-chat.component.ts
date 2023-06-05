@@ -59,7 +59,7 @@ export class CreateChatComponent implements OnInit{
     this.chatService.crearChat(chat).subscribe(responseChat => {
       console.log(responseChat);
     });
-    this.router.navigate(['/user-home']);
+    this.router.navigate(['user-home/']);
   }
 
   public agregarUsuario(usuario: Usuario){
