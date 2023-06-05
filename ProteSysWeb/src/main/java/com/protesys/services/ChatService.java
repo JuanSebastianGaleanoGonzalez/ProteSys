@@ -63,12 +63,19 @@ public class ChatService {
     }
 
     public Chat updateChat(Chat chat){
+        List<Mensaje> antes = this.chatRepository.findById(chat.getIdChat()).get().getMensajes();
+        List<Mensaje> despues = chat.getMensajes();
         try{
             if(this.getChat(chat.getIdChat()) != null){
                 this.chatRepository.save(chat);
                 for(Mensaje mensaje: chat.getMensajes()){
                     mensaje.setChat(chat);
                     this.mensajeRepository.save(mensaje);
+                }
+                for(Mensaje mensaje: despues){
+                    if(!antes.contains(despues)){
+                        this.notificationController.notificacionMensajeRecibido(mensaje, this.getChats());
+                    }
                 }
                 return chat;
             }else{

@@ -63,9 +63,11 @@ public class NotificationController {
         NotificationLeve notificationLeve = (NotificationLeve) this.notificationLeveFactory.crearNotification();
         this.subscribers.clear();
         for (Chat chat : chats) {
-            if (chat.getMensajes().contains(mensaje)) {
-                for (Usuario usuario : chat.getUsuarios()) {
-                    this.subscribers.add((UsuarioSubscriber) usuario);
+            for(Mensaje mensajeIterador: chat.getMensajes()){
+                if(mensajeIterador.getIdMensaje() == mensaje.getIdMensaje()){
+                    for (Usuario usuario : chat.getUsuarios()) {
+                        this.subscribers.add((UsuarioSubscriber) usuario);
+                    }
                 }
             }
         }
@@ -74,7 +76,7 @@ public class NotificationController {
             if (mensaje.getUsuarioEmisor().getIdUsuario() != ((Usuario) usuarioSubscriber).getIdUsuario()) {
                 notificationLeve = (NotificationLeve)this.notificationLeveFactory.crearNotification();
                 notificationLeve.setUsuario((Usuario) usuarioSubscriber);
-                notificationLeve.setTexto(mensaje.getUsuarioEmisor().getNombre() + " te ha enviado un mensaje.");
+                notificationLeve.setTexto(mensaje.getUsuarioEmisor().getNombre() + " te ha enviado un mensaje: " + mensaje.getMensaje());
                 usuarioSubscriber.updateNotifications(notificationLeve);
                 usuarioSubscriberImplementation.updateNotifications(notificationLeve);
             }
