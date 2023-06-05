@@ -73,17 +73,17 @@ export class ChatsComponent implements OnInit {
 
   public sendMessage() {
     let message: Mensaje = new Mensaje();
-    message.mensaje = this.inputMessage;    
+    message.mensaje = this.inputMessage;
     message.usuarioEmisor = this.usuario;
     this.mensajeService.crearMensaje(message).subscribe(responseMensaje => {
-        this.chat_seleccionado?.mensajes?.push(responseMensaje);
-        this.chatService.actualizarChat(this.chat_seleccionado!).subscribe(responseUpdate =>{
-          this.chat_seleccionado = responseUpdate;
-          this.mensajes.splice(0, this.mensajes.length);
-          for(let mensaje of this.chat_seleccionado.mensajes!){
-            this.mensajes.push(mensaje);
-          }
-        });
+      this.chat_seleccionado?.mensajes?.push(responseMensaje);
+      this.chatService.actualizarChat(this.chat_seleccionado!).subscribe(responseUpdate => {
+        this.chat_seleccionado = responseUpdate;
+        this.mensajes.splice(0, this.mensajes.length);
+        for (let mensaje of this.chat_seleccionado.mensajes!) {
+          this.mensajes.push(mensaje);
+        }
+      });
     });
   }
 
@@ -93,17 +93,17 @@ export class ChatsComponent implements OnInit {
     this.usuariosAsignados.splice(0, this.usuariosAsignados.length);
     this.usuariosNoAsignados.splice(0, this.usuariosNoAsignados.length);
     this.grupoService.traerGrupos().subscribe(responseGrupo => {
-      for(let grupo of responseGrupo){
-        for(let usuarioGrupo of grupo.usuarios!){
-          if(usuarioGrupo.idUsuario === this.usuario?.idUsuario){
+      for (let grupo of responseGrupo) {
+        for (let usuarioGrupo of grupo.usuarios!) {
+          if (usuarioGrupo.idUsuario === this.usuario?.idUsuario) {
             this.grupo = grupo;
           }
         }
       }
-      for(let usuario of this.grupo?.usuarios!){
-        if(!(usuario.idUsuario === this.usuario?.idUsuario)){ 
+      for (let usuario of this.grupo?.usuarios!) {
+        if (!(usuario.idUsuario === this.usuario?.idUsuario)) {
           this.usuariosNoAsignados?.push(usuario);
-        } 
+        }
       }
     });
   }
@@ -115,11 +115,11 @@ export class ChatsComponent implements OnInit {
     chat.usuarios?.push(this.usuario!);
     this.chatService.crearChat(chat).subscribe(responseChat => {
       this.crear_chat = !this.crear_chat;
-      if(responseChat){
-        this.chats.push(chat);
-      }
+      this.chat_seleccionado = undefined;
+      this.chat_seleccionado_bandera = false;
+      this.selectedOption = undefined;
     });
-    this.selectedOption = -1;
+    this.actualizarInterfaz();
   }
 
   public agregarUsuario(usuario: Usuario) {
@@ -142,5 +142,30 @@ export class ChatsComponent implements OnInit {
       contador++;
     }
     return idUsuario;
+  }
+
+  public actualizarInterfaz(){
+    this.usuario = undefined;
+    this.chats = [];
+    this.mensajes = [];
+    this.usuarioService.traerUsuarios().subscribe(responseUsuarios => {
+      for(let usuario of responseUsuarios){
+        if(usuario.credencial?.username === this.keycloakService.getUsername()){
+          this.usuario = usuario;
+        }
+      }
+      this.chat_seleccionado = undefined;
+      this.chat_seleccionado_bandera = false;
+      this.selectedOption = undefined;
+      this.chatService.traerChats().subscribe(responseChats => {
+        for(let chat of responseChats){
+          for(let usuario of chat.usuarios!){
+            if(usuario.credencial?.username === this.keycloakService.getUsername()){
+              this.chats.push(chat);
+            }
+          }
+        }
+      });
+    });
   }
 }
