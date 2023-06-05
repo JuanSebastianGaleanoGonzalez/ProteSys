@@ -18,7 +18,7 @@ export class NotificationLeveService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public traerNotificacionesGraves(): Observable<NotificationLeve[]> {
+  public traerNotificaciones(): Observable<NotificationLeve[]> {
     return this.httpClient.get<NotificationLeve[]>(this.API_SERVER + `/search`);
   }
 }

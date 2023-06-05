@@ -18,7 +18,7 @@ export class NotificationNormalService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public traerNotificacionesGraves(): Observable<NotificationNormal[]> {
+  public traerNotificaciones(): Observable<NotificationNormal[]> {
     return this.httpClient.get<NotificationNormal[]>(this.API_SERVER + `/search`);
   }
 }
