@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.protesys.model.Usuario;
 
 @Entity
@@ -23,6 +24,7 @@ public class Mensaje {
     @Column(name = "mensaje")
     private String mensaje;
     
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idChat")
     private Chat chat;
@@ -57,6 +59,14 @@ public class Mensaje {
 
     public void setUsuarioEmisor(Usuario usuarioEmisor) {
         this.usuarioEmisor = usuarioEmisor;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
     

@@ -1,5 +1,5 @@
+<html>
 <body>
-    <html>
     <div class="container">
         <div class="listado-chats">
             <div class="chats-empty" *ngIf="chats.length === 0">
@@ -11,14 +11,13 @@
                     <h3>Listado de Chats:</h3>
                 </div>
                 <div class="chats">
-                    <div class="card-chat" *ngFor="let number of numbers"
-                        [ngClass]="{'selected': selectedOption === number}" (click)="selectOption(number)">
+                    <div class="card-chat" *ngFor="let chat of chats"
+                        [ngClass]="{'selected': selectedOption === chat.idChat}" (click)="selectOption(chat.idChat!)">
                         <div class="foto-chat">
                             <img src={{chatImgSrc}} alt="Imagen Chat">
                         </div>
                         <div class="info-chat">
-                            <p class="nombre-chat">{{chats[0].nombre}}</p>
-                            <p class="primer-mensaje">{{mensajes[0].mensaje}}</p>
+                            <p class="nombre-chat">{{chat.nombre}}</p>
                         </div>
                     </div>
                 </div>
@@ -29,28 +28,65 @@
                 </button>
             </div>
         </div>
-        <div class="listado-mensajes" *ngIf="!crear_chat">
+        <div class="no-chat-selected" *ngIf="(!crear_chat) && (!chat_seleccionado_bandera)">
+            <p>Seleccione un chat para comenzar.</p>
+        </div>
+        <div class="listado-mensajes" *ngIf="(!crear_chat) && chat_seleccionado_bandera">
             <div class="no-messages" *ngIf="mensajes.length === 0">
                 <p>No hay Mensajes. Envía un mensaje!</p>
             </div>
             <div class="messages" *ngIf="mensajes.length > 0">
-                <div class="message-container" *ngFor="let number of numbers">  
+                <div class="message-container" *ngFor="let mensaje of mensajes">
                     <div class="user-message">
                         <img src={{chatImgSrc}} alt="Imagen usuario">
-                        <p class="user-name">elsebasgaleano</p>
+                        <p class="user-name">{{mensaje.usuarioEmisor?.credencial?.username}}</p>
                     </div>
                     <div class="textContainer">
-                        <p class="message-text">{{mensajes[2].mensaje}}</p>
+                        <p class="message-text">{{mensaje.mensaje}}</p>
                     </div>
                 </div>
             </div>
             <div class="send-message">
                 <input class="message-content" type="text" placeholder="Escribe tu mensaje" [(ngModel)]="inputMessage"
-                    name="mensaje" required minlength="5" maxlength="100">
-                <app-icon-send-message class="icon"></app-icon-send-message>
+                    name="mensaje" required minlength="5" maxlength="100" [ngModelOptions]="{standalone: true}">
+                <app-icon-send-message class="icon" (click)="sendMessage()"></app-icon-send-message>
             </div>
         </div>
-         <app-create-chat class="create-chat" *ngIf="crear_chat"></app-create-chat>
+        <div class="create-chat" *ngIf="crear_chat">
+            <form (ngSubmit)="crearChat()">
+                <div class="label-group">
+                  <label for="nombreChat">Nombre del Chat:</label>
+                  <input type="text" id="nombreChat" [(ngModel)]="nombreChat" name="nombreChat">
+                </div>
+                <div class="asigned-list">
+                  <p class="titulo">Usuarios en el chat:</p>
+                  <ul *ngIf="usuariosAsignados.length > 0">
+                    <li class="usuario" *ngFor="let usuarioAsignado of usuariosAsignados">
+                      <p>{{usuarioAsignado.nombre}}</p>
+                      <app-icon-minus class="minus" (click)="descartarUsuario(usuarioAsignado)"></app-icon-minus>
+                    </li>
+                  </ul>
+                  <p class="lista-vacia" *ngIf="usuariosAsignados.length === 0">
+                    No hay usuarios asignados.
+                  </p>
+                </div>
+                <div class="non-asigned-list">
+                  <p class="titulo">Usuarios fuera del chat:</p>
+                  <ul *ngIf="usuariosNoAsignados.length > 0">
+                    <li class="usuario" *ngFor="let usuarioNoAsignado of usuariosNoAsignados">
+                      <p>{{usuarioNoAsignado.nombre}}</p>
+                      <app-icon-plus class="plus" (click)="agregarUsuario(usuarioNoAsignado)"></app-icon-plus>
+                    </li>
+                  </ul>
+                  <p *ngIf="usuariosNoAsignados.length === 0" class="lista-vacia">
+                    Todos los usuarios han sido asignados.</p>
+                </div>
+                <div class="button-submit">
+                  <button class="my-button" type="submit">Crear Chat</button>
+                </div>
+              </form>
+        </div>
     </div>
-    </html>
 </body>
+
+</html>

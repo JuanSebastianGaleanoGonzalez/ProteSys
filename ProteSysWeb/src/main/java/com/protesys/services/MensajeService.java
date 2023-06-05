@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.protesys.repository.ChatRepository;
 import com.protesys.repository.MensajeRepository;
 import com.protesys.utils.chat.Mensaje;
 
@@ -17,6 +18,9 @@ public class MensajeService {
 
     @Autowired
     MensajeRepository mensajeRepository;
+
+    @Autowired
+    ChatRepository chatRepository;
 
     public List<Mensaje> getMensajes() {
         try {
@@ -43,12 +47,12 @@ public class MensajeService {
         }
     }
 
-    public boolean createMensaje(Mensaje mensaje) {
+    public Mensaje createMensaje(Mensaje mensaje) {
         try {
             this.mensajeRepository.save(mensaje);
-            return true;
+            return mensaje;
         } catch (PersistenceException exception) {
-            return false;
+            return null;
         }
     }
 

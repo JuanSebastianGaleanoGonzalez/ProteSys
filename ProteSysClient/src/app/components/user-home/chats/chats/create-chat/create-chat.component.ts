@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
+import { Chat } from 'src/app/model/Chat/chat';
 import { Grupo } from 'src/app/model/Grupo/grupo';
 import { Usuario } from 'src/app/model/Usuario/usuario';
 import { ChatService } from 'src/app/services/chat/chat.service';
@@ -22,8 +24,10 @@ export class CreateChatComponent implements OnInit{
     private keycloakService: KeycloakService,
     private usuarioService: UsuarioService,
     private grupoService: GrupoService,
-    private chatService: ChatService
+    private chatService: ChatService, 
+    private router: Router
   ){}
+
   ngOnInit(): void {
     this.usuarioService.traerUsuarios().subscribe(responseUsuario => {
       for(let usuario of responseUsuario){
@@ -40,12 +44,23 @@ export class CreateChatComponent implements OnInit{
           }
         }
         for(let usuario of this.grupo?.usuarios!){
-          this.usuariosNoAsignados.push(usuario);
+          if(!(usuario.idUsuario === this.usuario?.idUsuario)){ 
+            this.usuariosNoAsignados.push(usuario);
+          } 
         }
       });
     });
   }
-  public crearChat(){}
+  public crearChat(){
+    let chat: Chat = new Chat();
+    chat.nombre = this.nombreChat;
+    chat.usuarios = this.usuariosAsignados;
+    chat.usuarios.push(this.usuario!);
+    this.chatService.crearChat(chat).subscribe(responseChat => {
+      console.log(responseChat);
+    });
+    this.router.navigate(['user-home/']);
+  }
 
   public agregarUsuario(usuario: Usuario){
     this.usuariosAsignados.push(usuario);
