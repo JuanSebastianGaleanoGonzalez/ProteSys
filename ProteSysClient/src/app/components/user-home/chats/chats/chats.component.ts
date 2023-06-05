@@ -41,28 +41,14 @@ export class ChatsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.usuarioService.traerUsuarios().subscribe(responseUsuario => {
-      for (let usuario of responseUsuario) {
-        if (usuario.credencial?.username === this.keycloakService.getUsername()) {
-          this.usuario = usuario;
-        }
-      }
-      this.chatService.traerChats().subscribe(responseChats => {
-        for (let chat of responseChats) {
-          for (let usuario of chat.usuarios!) {
-            if (usuario.idUsuario === this.usuario?.idUsuario) {
-              this.chats.push(chat);
-            }
-          }
-        }
-      });
-    });
+    this.actualizarInterfaz();
   }
 
   public selectOption(option: number) {
     this.selectedOption = option;
     this.chat_seleccionado = this.chats[option - 1];
     this.chat_seleccionado_bandera = true;
+    this.crear_chat = false;
     this.mensajes.splice(0, this.mensajes.length);
     this.chatService.traerChatId(option).subscribe(responseChat => {
       for (let mensaje of responseChat.mensajes!) {
@@ -85,6 +71,9 @@ export class ChatsComponent implements OnInit {
         }
       });
     });
+    console.log(message);
+    console.log(this.chat_seleccionado);
+    
   }
 
   public form_create() {
@@ -119,7 +108,7 @@ export class ChatsComponent implements OnInit {
       this.chat_seleccionado_bandera = false;
       this.selectedOption = undefined;
     });
-    this.actualizarInterfaz();
+    this.ngOnInit();
   }
 
   public agregarUsuario(usuario: Usuario) {
@@ -147,7 +136,7 @@ export class ChatsComponent implements OnInit {
   public actualizarInterfaz(){
     this.usuario = undefined;
     this.chats = [];
-    this.mensajes = [];
+    this.crear_chat = false;
     this.usuarioService.traerUsuarios().subscribe(responseUsuarios => {
       for(let usuario of responseUsuarios){
         if(usuario.credencial?.username === this.keycloakService.getUsername()){
