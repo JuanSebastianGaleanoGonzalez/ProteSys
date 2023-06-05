@@ -52,7 +52,7 @@
                 <app-icon-send-message class="icon" (click)="sendMessage()"></app-icon-send-message>
             </div>
         </div>
-        <div class="create-chat" *ngIf="crear_chat">
+        <div class="create-chat" *ngIf="crear_chat ">
             <form (ngSubmit)="crearChat()">
                 <div class="label-group">
                   <label for="nombreChat">Nombre del Chat:</label>

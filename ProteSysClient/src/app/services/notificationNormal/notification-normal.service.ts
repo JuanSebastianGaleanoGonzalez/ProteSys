@@ -14,7 +14,7 @@ export class NotificationNormalService {
     })
   };
 
-  private API_SERVER = "http://localhost:9090/notification-grave"
+  private API_SERVER = "http://localhost:9090/notification-normal"
 
   constructor(private httpClient: HttpClient) { }
 

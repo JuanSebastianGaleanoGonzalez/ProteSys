@@ -28,21 +28,15 @@ public class UsuarioSubscriberImplementation implements UsuarioSubscriber{
         try{
             this.notificationLeveService.createNotification((NotificationLeve)notification);
         }catch(Exception e){
-            System.out.println(e.getMessage());
         }
-
         try{
             this.notificationNormalService.createNotification((NotificationNormal)notification);
         }catch(Exception e){
-            System.out.println(e.getMessage());
-
         }
 
         try{
             this.notificationServiceGraveService.createNotification((NotificationGrave)notification);
         }catch(Exception e){
-            System.out.println(e.getMessage());
-
         }
     }    
 }
