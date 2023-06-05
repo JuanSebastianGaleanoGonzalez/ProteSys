@@ -30,6 +30,12 @@ public class UsuarioRestController {
     }
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
+    @GetMapping(value = "/panic")
+    public void activarBotonPanico(){
+        this.usuarioService.activarBotonPanico();
+    }
+
+    @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @GetMapping(value = "/search/{id}")
     public Usuario buscarUsuario(@PathVariable ("id") Long id){
         return this.usuarioService.getUsuario(id);

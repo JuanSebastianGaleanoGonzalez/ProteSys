@@ -10,6 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.protesys.model.Usuario;
+import com.protesys.model.UsuarioSubscriberImplementation;
 import com.protesys.repository.UsuarioRepository;
 
 @Service
@@ -17,6 +18,9 @@ public class UsuarioService {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+
+    @Autowired
+    UsuarioSubscriberImplementation usuarioSubscriberImplementation;
 
     public List<Usuario> getUsuarios() {
         try {
@@ -63,5 +67,9 @@ public class UsuarioService {
         } catch (PersistenceException | NoSuchElementException exception) {
             return false;
         }
+    }
+
+    public void activarBotonPanico(){
+        usuarioSubscriberImplementation.activarBotonPanico();
     }
 }
