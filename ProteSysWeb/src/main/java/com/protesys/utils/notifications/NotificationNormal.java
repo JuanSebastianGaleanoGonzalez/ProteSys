@@ -17,9 +17,6 @@ public class NotificationNormal implements Notification{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idNotification;
 
-    public NotificationNormal() {
-    }
-
     @Column(name = "asunto")
     private String asunto;
 
@@ -29,6 +26,9 @@ public class NotificationNormal implements Notification{
     @OneToOne
     private Usuario usuario;
     
+    public NotificationNormal() {
+    }
+
     public NotificationNormal(Usuario usuario, String asunto, String contenido) {
         this.usuario = usuario;
         this.asunto = asunto;
