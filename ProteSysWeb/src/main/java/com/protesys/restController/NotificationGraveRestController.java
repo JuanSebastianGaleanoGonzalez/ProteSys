@@ -42,12 +42,6 @@ public class NotificationGraveRestController {
     }
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
-    @PostMapping(value = "/create")
-    public boolean crearNotificationGrave(@RequestBody NotificationGrave notificationGrave){
-        return this.notificationGraveService.createNotificationGrave(notificationGrave);
-    }
-
-    @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PutMapping(value = "/update")
     public boolean actualizarNotificationGrave(@RequestBody NotificationGrave notificationGrave){
         return this.notificationGraveService.updateNotificationGrave(notificationGrave);

@@ -10,10 +10,11 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.protesys.repository.NotificationLeveRepository;
+import com.protesys.utils.notifications.Notification;
 import com.protesys.utils.notifications.NotificationLeve;
 
 @Service
-public class NotificationLeveService {
+public class NotificationLeveService{
     
     @Autowired
     NotificationLeveRepository notificationLeveRepository;
@@ -43,12 +44,12 @@ public class NotificationLeveService {
         }
     }
 
-    public boolean createNotificationLeve(NotificationLeve notificationLeve){
+
+    public void createNotification(Notification notification){
         try{
-            this.notificationLeveRepository.save(notificationLeve);
-            return true;
+            this.notificationLeveRepository.save((NotificationLeve)notification);
         }catch(PersistenceException exception){
-            return false;
+            System.out.println(exception.getMessage());
         }
     }
 

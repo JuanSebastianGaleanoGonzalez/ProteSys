@@ -78,7 +78,7 @@
                       <app-icon-plus class="plus" (click)="agregarUsuario(usuarioNoAsignado)"></app-icon-plus>
                     </li>
                   </ul>
-                  <p *ngIf="usuariosNoAsignados.length === 0" class="lista-vacia">
+                  <p *ngIf="usuariosNoAsignados?.length === 0" class="lista-vacia">
                     Todos los usuarios han sido asignados.</p>
                 </div>
                 <div class="button-submit">

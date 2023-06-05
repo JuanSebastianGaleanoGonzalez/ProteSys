@@ -41,11 +41,7 @@ public class NotificationNormalRestController {
         return this.notificationNormalService.deleteNotificationNormal(id);
     }
 
-    @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
-    @PostMapping(value = "/create")
-    public boolean crearNotificationNormal(@RequestBody NotificationNormal notificationNormal){
-        return this.notificationNormalService.createNotificationNormal(notificationNormal);
-    }
+
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PutMapping(value = "/update")

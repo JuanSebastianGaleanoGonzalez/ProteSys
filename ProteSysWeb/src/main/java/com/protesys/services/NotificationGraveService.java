@@ -10,11 +10,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.protesys.repository.NotificationGraveRepository;
+import com.protesys.utils.notifications.Notification;
 import com.protesys.utils.notifications.NotificationGrave;
 
 @Service
-public class NotificationGraveService {
-    
+public class NotificationGraveService{
+
     @Autowired
     NotificationGraveRepository notificationGraveRepository;
 
@@ -43,12 +44,10 @@ public class NotificationGraveService {
         }
     }
 
-    public boolean createNotificationGrave(NotificationGrave notificationGrave){
+    public void createNotification(Notification notification){
         try{
-            this.notificationGraveRepository.save(notificationGrave);
-            return true;
+            this.notificationGraveRepository.save((NotificationGrave)notification);
         }catch(PersistenceException exception){
-            return false;
         }
     }
 

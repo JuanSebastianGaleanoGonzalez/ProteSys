@@ -42,12 +42,6 @@ public class NotificationLeveRestController {
     }
 
     @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
-    @PostMapping(value = "/create")
-    public boolean crearNotificationLeve(@RequestBody NotificationLeve notificationLeve){
-        return this.notificationLeveService.createNotificationLeve(notificationLeve);
-    }
-
-    @Secured({"ROLE_NORMAL", "ROLE_INVITADO", "ROLE_ADMINISTRADOR", "ROLE_ADMIN_GRUPO"})
     @PutMapping(value = "/update")
     public boolean actualizarNotificationLeve(@RequestBody NotificationLeve notificationLeve){
         return this.notificationLeveService.updateNotificationLeve(notificationLeve);

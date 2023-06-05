@@ -56,20 +56,6 @@ export class ChatsComponent implements OnInit {
           }
         }
       });
-      this.grupoService.traerGrupos().subscribe(responseGrupo => {
-        for(let grupo of responseGrupo){
-          for(let usuarioGrupo of grupo.usuarios!){
-            if(usuarioGrupo.idUsuario === this.usuario?.idUsuario){
-              this.grupo = grupo;
-            }
-          }
-        }
-        for(let usuario of this.grupo?.usuarios!){
-          if(!(usuario.idUsuario === this.usuario?.idUsuario)){ 
-            this.usuariosNoAsignados.push(usuario);
-          } 
-        }
-      });
     });
   }
 
@@ -103,30 +89,47 @@ export class ChatsComponent implements OnInit {
 
   public form_create() {
     this.crear_chat = !this.crear_chat;
+    this.nombreChat = "";
+    this.usuariosAsignados.splice(0, this.usuariosAsignados.length);
+    this.usuariosNoAsignados.splice(0, this.usuariosNoAsignados.length);
+    this.grupoService.traerGrupos().subscribe(responseGrupo => {
+      for(let grupo of responseGrupo){
+        for(let usuarioGrupo of grupo.usuarios!){
+          if(usuarioGrupo.idUsuario === this.usuario?.idUsuario){
+            this.grupo = grupo;
+          }
+        }
+      }
+      for(let usuario of this.grupo?.usuarios!){
+        if(!(usuario.idUsuario === this.usuario?.idUsuario)){ 
+          this.usuariosNoAsignados?.push(usuario);
+        } 
+      }
+    });
   }
 
   public crearChat() {
     let chat: Chat = new Chat();
     chat.nombre = this.nombreChat;
     chat.usuarios = this.usuariosAsignados;
-    chat.usuarios.push(this.usuario!);
+    chat.usuarios?.push(this.usuario!);
     this.chatService.crearChat(chat).subscribe(responseChat => {
       this.crear_chat = !this.crear_chat;
       if(responseChat){
         this.chats.push(chat);
-        this.selectOption(chat.idChat!);
       }
     });
+    this.selectedOption = -1;
   }
 
   public agregarUsuario(usuario: Usuario) {
-    this.usuariosAsignados.push(usuario);
-    this.usuariosNoAsignados.splice(this.getIdUsuario(usuario, this.usuariosNoAsignados), 1);
+    this.usuariosAsignados?.push(usuario);
+    this.usuariosNoAsignados?.splice(this.getIdUsuario(usuario, this.usuariosNoAsignados), 1);
   }
 
   public descartarUsuario(usuario: Usuario) {
-    this.usuariosNoAsignados.push(usuario);
-    this.usuariosAsignados.splice(this.getIdUsuario(usuario, this.usuariosAsignados), 1);
+    this.usuariosNoAsignados?.push(usuario);
+    this.usuariosAsignados?.splice(this.getIdUsuario(usuario, this.usuariosAsignados), 1);
   }
 
   public getIdUsuario(usuario: Usuario, usuarios: Usuario[]): number {

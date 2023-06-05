@@ -6,5 +6,4 @@ public class NotificationGraveFactory extends NotificationFactory{
     public Notification crearNotification() {
         return new NotificationGrave();
     }
-    
 }

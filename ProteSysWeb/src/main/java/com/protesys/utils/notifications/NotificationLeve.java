@@ -7,12 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.protesys.model.Usuario;
-import com.protesys.services.NotificationLeveService;
 
 @Entity
 @Table(name = "notification_leve")
@@ -59,15 +55,4 @@ public class NotificationLeve implements Notification{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
-    @Autowired
-    @Transient
-    NotificationLeveService notificationLeveService;
-
-    @Override
-    public void crearNotification() {
-        this.notificationLeveService.createNotificationLeve(this);
-    }
-
-    
 }
