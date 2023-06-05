@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.protesys.services.ChatService;
 import com.protesys.utils.chat.Chat;
 
-import com.protesys.utils.notifications.NotificationFactory;
-import com.protesys.utils.notifications.NotificationNormal;
-import com.protesys.utils.notifications.NotificationNormalFactory;
-
 @RestController
 @RequestMapping(value = "/chat")
 public class ChatRestController {
