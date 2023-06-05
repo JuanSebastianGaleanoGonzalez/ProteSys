@@ -43,7 +43,7 @@ public class UsuarioSubscriberImplementation implements UsuarioSubscriber{
         }
     }    
 
-    public void activarBotonPanico(){
-        this.invoker.getComandos().get(0).execute();
+    public void activarBotonPanico(long idUsuario){
+        this.invoker.getComandos().get(0).execute(idUsuario);
     }
 }

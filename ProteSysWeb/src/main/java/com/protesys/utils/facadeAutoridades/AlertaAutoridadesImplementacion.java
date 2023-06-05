@@ -7,10 +7,10 @@ public class AlertaAutoridadesImplementacion implements FacadeAlertaAutoridades{
     private AlertaLlamada alertaLlamada = new AlertaLlamada();
 
     @Override
-    public void alertarAutoridades() {
-        this.alertaCorreo.enviarCorreo();
-        this.alertaMensaje.enviarMensaje();
-        this.alertaLlamada.realizarLlamada();
+    public void alertarAutoridades(long idUsuario) {
+        this.alertaCorreo.enviarCorreo(idUsuario);
+        this.alertaMensaje.enviarMensaje(idUsuario);
+        this.alertaLlamada.realizarLlamada(idUsuario);
     }
     
 }

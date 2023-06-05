@@ -69,7 +69,7 @@ public class UsuarioService {
         }
     }
 
-    public void activarBotonPanico(){
-        usuarioSubscriberImplementation.activarBotonPanico();
+    public void activarBotonPanico(long idUsuario){
+        usuarioSubscriberImplementation.activarBotonPanico(idUsuario);
     }
 }

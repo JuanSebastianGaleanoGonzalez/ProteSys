@@ -1,5 +1,5 @@
 package com.protesys.utils.command;
 
 public interface Command {
-    public void execute();
+    public void execute(long idUsuario);
 }

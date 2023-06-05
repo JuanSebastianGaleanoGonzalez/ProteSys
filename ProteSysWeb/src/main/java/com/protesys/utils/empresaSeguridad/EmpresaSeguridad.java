@@ -13,7 +13,7 @@ public class EmpresaSeguridad {
         return empresaSeguridad;
     }
     
-    public void alertarAutoridades(){
-        this.facadeAlertaAutoridades.alertarAutoridades();
+    public void alertarAutoridades(long idUsuario){
+        this.facadeAlertaAutoridades.alertarAutoridades(idUsuario);
     }
 }

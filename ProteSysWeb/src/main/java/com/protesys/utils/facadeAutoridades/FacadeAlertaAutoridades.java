@@ -1,5 +1,5 @@
 package com.protesys.utils.facadeAutoridades;
 
 public interface FacadeAlertaAutoridades {
-    public void alertarAutoridades();
+    public void alertarAutoridades(long idUsuario);
 }

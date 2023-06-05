@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import com.protesys.model.Usuario;
 import com.protesys.model.UsuarioSubscriber;
 import com.protesys.model.UsuarioSubscriberImplementation;
+import com.protesys.services.UsuarioService;
 import com.protesys.utils.chat.Chat;
 import com.protesys.utils.chat.Mensaje;
 import com.protesys.utils.notifications.NotificationFactory;
+import com.protesys.utils.notifications.NotificationGrave;
 import com.protesys.utils.notifications.NotificationGraveFactory;
 import com.protesys.utils.notifications.NotificationLeve;
 import com.protesys.utils.notifications.NotificationLeveFactory;
@@ -23,6 +25,9 @@ public class NotificationController {
 
     @Autowired
     UsuarioSubscriberImplementation usuarioSubscriberImplementation;
+
+    @Autowired
+    UsuarioService usuarioService;
 
     NotificationFactory notificationGraveFactory = new NotificationGraveFactory();
     NotificationFactory notificationNormalFactory = new NotificationNormalFactory();
@@ -80,6 +85,57 @@ public class NotificationController {
                 usuarioSubscriber.updateNotifications(notificationLeve);
                 usuarioSubscriberImplementation.updateNotifications(notificationLeve);
             }
+        }
+    }
+
+    public void crearNotificacionCorreoAutoridades(long idUsuario){
+        NotificationGrave notificationGrave = (NotificationGrave) notificationGraveFactory.crearNotification();
+        this.subscribers.clear();
+        for(Usuario usuario: this.usuarioService.getUsuario(idUsuario).getGrupo().getUsuarios()){
+            this.subscribers.add((UsuarioSubscriber)usuario);
+        }
+        for(UsuarioSubscriber usuarioSubscriber: this.subscribers){
+            notificationGrave = (NotificationGrave)notificationGraveFactory.crearNotification();
+            notificationGrave.setUsuario((Usuario)usuarioSubscriber);
+            notificationGrave.setTitulo("ALERTA CORREO ELECTRONICO - AUTORIDADES");
+            notificationGrave.setMotivo(this.usuarioService.getUsuario(idUsuario).getNombre() + " ha activado el boton de panico.");
+            notificationGrave.setDescripcion("Se ha enviado un correo electronico a las autoridades competentes.");
+            usuarioSubscriber.updateNotifications(notificationGrave);
+            usuarioSubscriberImplementation.updateNotifications(notificationGrave);
+        }
+    }
+
+    public void crearNotificacionMensajeAutoridades(long idUsuario){
+        NotificationGrave notificationGrave = (NotificationGrave) notificationGraveFactory.crearNotification();
+        this.subscribers.clear();
+        for(Usuario usuario: this.usuarioService.getUsuario(idUsuario).getGrupo().getUsuarios()){
+            this.subscribers.add((UsuarioSubscriber)usuario);
+        }
+        for(UsuarioSubscriber usuarioSubscriber: this.subscribers){
+            notificationGrave = (NotificationGrave)notificationGraveFactory.crearNotification();
+            notificationGrave.setUsuario((Usuario)usuarioSubscriber);
+            notificationGrave.setTitulo("ALERTA MENSAJE DE TEXTO - AUTORIDADES");
+            notificationGrave.setMotivo(this.usuarioService.getUsuario(idUsuario).getNombre() + " ha activado el boton de panico.");
+            notificationGrave.setDescripcion("Se ha enviado un mensaje de texto a las autoridades competentes.");
+            usuarioSubscriber.updateNotifications(notificationGrave);
+            usuarioSubscriberImplementation.updateNotifications(notificationGrave);
+        }
+    }
+
+    public void crearNotificacionLlamadaAutoridades(long idUsuario){
+        NotificationGrave notificationGrave = (NotificationGrave) notificationGraveFactory.crearNotification();
+        this.subscribers.clear();
+        for(Usuario usuario: this.usuarioService.getUsuario(idUsuario).getGrupo().getUsuarios()){
+            this.subscribers.add((UsuarioSubscriber)usuario);
+        }
+        for(UsuarioSubscriber usuarioSubscriber: this.subscribers){
+            notificationGrave = (NotificationGrave)notificationGraveFactory.crearNotification();
+            notificationGrave.setUsuario((Usuario)usuarioSubscriber);
+            notificationGrave.setTitulo("ALERTA LLAMADA TELEFONICA - AUTORIDADES");
+            notificationGrave.setMotivo(this.usuarioService.getUsuario(idUsuario).getNombre() + " ha activado el boton de panico.");
+            notificationGrave.setDescripcion("Se ha ralizado una llamada de emergencia a las autoridades competentes.");
+            usuarioSubscriber.updateNotifications(notificationGrave);
+            usuarioSubscriberImplementation.updateNotifications(notificationGrave);
         }
     }
 }
