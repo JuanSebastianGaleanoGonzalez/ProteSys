@@ -12,7 +12,7 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 })
 export class UserHomeComponent {
   options: boolean = true;
-  selectedOption: string = 'Chats';
+  selectedOption: string = 'Usuario';
   roles: String[] = [];
   
 

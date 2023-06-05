@@ -16,10 +16,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.protesys.utils.chat.Chat;
+import com.protesys.utils.notifications.Notification;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements UsuarioSubscriber{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,5 +136,9 @@ public class Usuario {
 
     public Credencial getCredencial() {
         return credencial;
+    }
+
+    @Override
+    public void updateNotifications(Notification notification) {
     }
 }

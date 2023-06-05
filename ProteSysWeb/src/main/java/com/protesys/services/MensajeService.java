@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.protesys.control.NotificationController;
 import com.protesys.repository.ChatRepository;
 import com.protesys.repository.MensajeRepository;
+import com.protesys.utils.chat.Chat;
 import com.protesys.utils.chat.Mensaje;
 
 @Service
@@ -21,6 +23,9 @@ public class MensajeService {
 
     @Autowired
     ChatRepository chatRepository;
+
+    @Autowired
+    NotificationController notificationController;
 
     public List<Mensaje> getMensajes() {
         try {
@@ -50,6 +55,7 @@ public class MensajeService {
     public Mensaje createMensaje(Mensaje mensaje) {
         try {
             this.mensajeRepository.save(mensaje);
+            this.notificationController.notificacionMensajeRecibido(this.mensajeRepository.findById(this.mensajeRepository.count() - 1).get(), (List<Chat>)this.chatRepository.findAll());
             return mensaje;
         } catch (PersistenceException exception) {
             return null;

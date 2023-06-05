@@ -1,0 +1,153 @@
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.leves,
+.normales,
+.graves{
+    width: 33.333333%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid cornflowerblue;
+}
+
+
+.titulo{
+    height: 5%;
+    display: grid;
+    place-items: center;
+}
+
+.titulo-texto{
+    font-size: 1vw;
+}
+
+.no-leves,
+.si-leves,
+.no-normales,
+.si-normales,
+.no-graves,
+.si-graves{
+    width: 90%;
+    height: 90%;
+    flex-wrap: nowrap;
+    overflow-y: scroll; 
+}
+
+.no-leves::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+  }
+  
+  .no-leves::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .si-leves::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+  }
+  
+  .si-leves::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .no-normales::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+  }
+  
+  .no-normales::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .si-normales::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+  }
+  
+  .si-normales::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .no-graves::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+  }
+  
+  .no-graves::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .si-graves::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+  }
+  
+  .si-graves::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+
+  .no-leves,
+  .no-normales,
+  .no-graves{
+    display: grid;
+    place-items: center;
+  }
+
+  .si-leves,
+  .si-normales,
+  .si-graves{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding-left: 2%;
+  }
+
+  .leve-container{
+    background-color: rgb(47, 254, 130);
+    display: grid;
+    place-items: center;
+    padding: 5%;
+    margin-bottom: 2%;
+  }
+
+  .normal-container{
+    background-color: rgb(255, 255, 84);
+    padding: 5%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grave-container{
+    background-color: rgb(252, 63, 63);
+  }
+
+  .contenido{
+    font-size: 0.8vw;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+  }
+
+  .subtitulo{
+    font-size: 1vw;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+  }
+
+  .titulo-grave{
+    font-size: 1.2vw;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 4%;
+  }

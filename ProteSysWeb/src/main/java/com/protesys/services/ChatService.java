@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.protesys.control.NotificationController;
 import com.protesys.repository.ChatRepository;
 import com.protesys.repository.MensajeRepository;
 import com.protesys.utils.chat.Chat;
@@ -22,6 +23,9 @@ public class ChatService {
 
     @Autowired
     MensajeRepository mensajeRepository;
+
+    @Autowired
+    NotificationController notificationController;
 
     public List<Chat> getChats(){
         try{
@@ -51,6 +55,7 @@ public class ChatService {
     public boolean createChat(Chat chat){
         try{
             this.chatRepository.save(chat);
+            this.notificationController.notificacionCreacionChat(chat);
             return true;
         }catch(PersistenceException exception){
             return false;

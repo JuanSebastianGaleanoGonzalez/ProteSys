@@ -7,12 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.protesys.model.Usuario;
-import com.protesys.services.NotificationNormalService;
 
 @Entity
 @Table(name = "notification_normal")
@@ -21,9 +16,6 @@ public class NotificationNormal implements Notification{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idNotification;
-
-    public NotificationNormal() {
-    }
 
     @Column(name = "asunto")
     private String asunto;
@@ -34,6 +26,9 @@ public class NotificationNormal implements Notification{
     @OneToOne
     private Usuario usuario;
     
+    public NotificationNormal() {
+    }
+
     public NotificationNormal(Usuario usuario, String asunto, String contenido) {
         this.usuario = usuario;
         this.asunto = asunto;
@@ -72,14 +67,4 @@ public class NotificationNormal implements Notification{
         this.contenido = contenido;
     }
 
-    @Autowired
-    @Transient
-    NotificationNormalService notificationNormalService;
-
-    @Override
-    public void crearNotification() {
-        this.notificationNormalService.createNotificationNormal(this);
-    }
-    
-    
 }

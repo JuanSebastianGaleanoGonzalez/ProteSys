@@ -52,7 +52,7 @@
                 <app-icon-send-message class="icon" (click)="sendMessage()"></app-icon-send-message>
             </div>
         </div>
-        <div class="create-chat" *ngIf="crear_chat">
+        <div class="create-chat" *ngIf="crear_chat ">
             <form (ngSubmit)="crearChat()">
                 <div class="label-group">
                   <label for="nombreChat">Nombre del Chat:</label>
@@ -78,7 +78,7 @@
                       <app-icon-plus class="plus" (click)="agregarUsuario(usuarioNoAsignado)"></app-icon-plus>
                     </li>
                   </ul>
-                  <p *ngIf="usuariosNoAsignados.length === 0" class="lista-vacia">
+                  <p *ngIf="usuariosNoAsignados?.length === 0" class="lista-vacia">
                     Todos los usuarios han sido asignados.</p>
                 </div>
                 <div class="button-submit">

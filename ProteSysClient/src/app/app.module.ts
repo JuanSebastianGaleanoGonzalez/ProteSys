@@ -35,7 +35,6 @@ import { InfoDomicilioComponent } from './components/user-home/info-domicilio/in
 import { AdministracionComponent } from './components/user-home/administracion/administracion/administracion.component';
 import { AdminGrupoComponent } from './components/user-home/admin-grupo/admin-grupo/admin-grupo.component';
 import { IconSendMessage } from './components/material/icon-send-message/icon-send-message/icon-send-message';
-import { CreateChatComponent } from './components/user-home/chats/chats/create-chat/create-chat.component';
 import { IconPlus } from './components/material/icon-plus/icon-plus/icon-plus';
 import { IconMinus } from './components/material/icon-minus/icon-minus/icon-minus';
 
@@ -80,8 +79,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
         ChatsComponent,
         InfoDomicilioComponent,
         AdministracionComponent,
-        AdminGrupoComponent,
-        CreateChatComponent
+        AdminGrupoComponent
     ],
     providers: [
         {

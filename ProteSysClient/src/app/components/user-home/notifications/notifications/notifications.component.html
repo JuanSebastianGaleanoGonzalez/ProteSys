@@ -1,1 +1,45 @@
-<p>notifications works!</p>
+<html>
+    <body>
+        <div class="container">
+            <div class="leves">
+                <div class="titulo">
+                    <p class="titulo-texto">Notificaciones Leves:</p>
+                </div>
+                <div class="no-leves" *ngIf="notificaciones_leves.length === 0">
+                </div>
+                <div class="si-leves" *ngIf="notificaciones_leves.length > 0">
+                    <div class="leve-container" *ngFor="let notificationLeve of notificaciones_leves">
+                        <p class="contenido">{{notificationLeve.texto}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="normales">
+                <div class="titulo">
+                    <p class="titulo-texto">Notificaciones Normales:</p>
+                </div>
+                <div class="no-normales" *ngIf="notificaciones_normales.length === 0">
+                </div>
+                <div class="si-normales" *ngIf="notificaciones_normales.length > 0">
+                    <div class="normal-container" *ngFor="let notificationNormal of notificaciones_normales">
+                        <p class="subtitulo">{{notificationNormal.asunto}}</p>
+                        <p class="contenido">{{notificationNormal.contenido}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="graves">
+                <div class="titulo">
+                    <p class="titulo-texto">Notificaciones Graves:</p>
+                </div>
+                <div class="no-graves" *ngIf="notificaciones_graves.length === 0">
+                </div>
+                <div class="si-graves" *ngIf="notificaciones_graves.length > 0">
+                    <div class="grave-container" *ngFor="let notificationGrave of notificaciones_graves">
+                        <p class="titulo-grave">{{notificationGrave.titulo}}</p>
+                        <p class="subtitulo">{{notificationGrave.motivo}}</p>
+                        <p class="contenido">{{notificationGrave.descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

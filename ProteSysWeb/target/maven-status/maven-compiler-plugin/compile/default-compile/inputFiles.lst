@@ -18,6 +18,7 @@ C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\sensors\TemperaturaSensorAdapter.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\notifications\panic\ComandoBotonPanico.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\CamaraRestController.java
+C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\services\NotificationService.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\estado\Activo.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\notifications\panic\Comando.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\ChatRestController.java
@@ -54,6 +55,7 @@ C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\control\SensorController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\NotificationNormalRestController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\config\SecurityConfig.java
+C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\model\UsuarioSubscriberImplementation.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\CasaRestController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\repository\CrudRepository.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\repository\PisoRepository.java
@@ -63,6 +65,7 @@ C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\repository\NotificationNormalRepository.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\services\PisoService.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\utils\sensors\ISensor.java
+C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\model\UsuarioSubscriber.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\restController\PisoRestController.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\config\CORS.java
 C:\Users\juseb\Documents\GitHub\ProteSys\ProteSysWeb\src\main\java\com\protesys\repository\ChatRepository.java
