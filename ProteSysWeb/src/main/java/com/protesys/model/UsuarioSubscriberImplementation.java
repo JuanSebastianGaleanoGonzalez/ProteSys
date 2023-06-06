@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import com.protesys.services.NotificationGraveService;
 import com.protesys.services.NotificationLeveService;
 import com.protesys.services.NotificationNormalService;
+import com.protesys.utils.command.Invoker;
 import com.protesys.utils.notifications.Notification;
 import com.protesys.utils.notifications.NotificationGrave;
 import com.protesys.utils.notifications.NotificationLeve;
@@ -23,6 +24,8 @@ public class UsuarioSubscriberImplementation implements UsuarioSubscriber{
     @Autowired 
     NotificationLeveService notificationLeveService;
 
+    Invoker invoker = new Invoker();
+
     @Override
     public void updateNotifications(Notification notification) {
         try{
@@ -39,4 +42,8 @@ public class UsuarioSubscriberImplementation implements UsuarioSubscriber{
         }catch(Exception e){
         }
     }    
+
+    public void activarBotonPanico(long idUsuario){
+        this.invoker.getComandos().get(0).execute(idUsuario);
+    }
 }

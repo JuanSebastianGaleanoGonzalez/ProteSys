@@ -46,7 +46,7 @@ export class ChatsComponent implements OnInit {
 
   public selectOption(option: number) {
     this.selectedOption = option;
-    this.chat_seleccionado = this.chats[option - 1];
+    this.chat_seleccionado = this.chats[this.getIdChat(option, this.chats)];    
     this.chat_seleccionado_bandera = true;
     this.crear_chat = false;
     this.mensajes.splice(0, this.mensajes.length);
@@ -72,9 +72,8 @@ export class ChatsComponent implements OnInit {
         }
       });
     });
+    console.log(message);
     console.log(this.chat_seleccionado);
-    console.log(this.selectedOption);
-    console.log(this.chats);
   }
 
   public form_create() {
@@ -132,6 +131,18 @@ export class ChatsComponent implements OnInit {
       contador++;
     }
     return idUsuario;
+  }
+
+  public getIdChat(option: number, chats: Chat[]): number {
+    let idChat = -1;
+    let contador = 0;
+    for (let chatIterador of chats) {
+      if (option === chatIterador.idChat) {
+        idChat = contador;
+      }
+      contador++;
+    }
+    return idChat;
   }
 
   public actualizarInterfaz(){
